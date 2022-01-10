@@ -13,6 +13,10 @@
 		BF1C0E27278C8CB600A45220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1C0E25278C8CB600A45220 /* Main.storyboard */; };
 		BF1C0E29278C8CB900A45220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1C0E28278C8CB900A45220 /* Assets.xcassets */; };
 		BF1C0E2C278C8CB900A45220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1C0E2A278C8CB900A45220 /* LaunchScreen.storyboard */; };
+		BF1C0E3B278C928300A45220 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = BF1C0E3A278C928300A45220 /* SideMenu */; };
+		BF1C0E3F278C971800A45220 /* SidebarNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C0E3E278C971800A45220 /* SidebarNavigationController.swift */; };
+		BF1C0E43278C97F700A45220 /* SidebarNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C0E42278C97F700A45220 /* SidebarNavigationViewController.swift */; };
+		BF1C0E45278C9D2800A45220 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C0E44278C9D2800A45220 /* GenreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,9 @@
 		BF1C0E28278C8CB900A45220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1C0E2B278C8CB900A45220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF1C0E2D278C8CB900A45220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF1C0E3E278C971800A45220 /* SidebarNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarNavigationController.swift; sourceTree = "<group>"; };
+		BF1C0E42278C97F700A45220 /* SidebarNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarNavigationViewController.swift; sourceTree = "<group>"; };
+		BF1C0E44278C9D2800A45220 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1C0E3B278C928300A45220 /* SideMenu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,9 @@
 				BF1C0E28278C8CB900A45220 /* Assets.xcassets */,
 				BF1C0E2A278C8CB900A45220 /* LaunchScreen.storyboard */,
 				BF1C0E2D278C8CB900A45220 /* Info.plist */,
+				BF1C0E3E278C971800A45220 /* SidebarNavigationController.swift */,
+				BF1C0E42278C97F700A45220 /* SidebarNavigationViewController.swift */,
+				BF1C0E44278C9D2800A45220 /* GenreViewController.swift */,
 			);
 			path = MyMusicRecord;
 			sourceTree = "<group>";
@@ -83,6 +94,9 @@
 			dependencies = (
 			);
 			name = MyMusicRecord;
+			packageProductDependencies = (
+				BF1C0E3A278C928300A45220 /* SideMenu */,
+			);
 			productName = MyMusicRecord;
 			productReference = BF1C0E1C278C8CB600A45220 /* MyMusicRecord.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +125,9 @@
 				Base,
 			);
 			mainGroup = BF1C0E13278C8CB600A45220;
+			packageReferences = (
+				BF1C0E39278C928300A45220 /* XCRemoteSwiftPackageReference "SideMenu" */,
+			);
 			productRefGroup = BF1C0E1D278C8CB600A45220 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1C0E43278C97F700A45220 /* SidebarNavigationViewController.swift in Sources */,
 				BF1C0E24278C8CB600A45220 /* ViewController.swift in Sources */,
 				BF1C0E20278C8CB600A45220 /* AppDelegate.swift in Sources */,
+				BF1C0E3F278C971800A45220 /* SidebarNavigationController.swift in Sources */,
+				BF1C0E45278C9D2800A45220 /* GenreViewController.swift in Sources */,
 				BF1C0E22278C8CB600A45220 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +380,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BF1C0E39278C928300A45220 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BF1C0E3A278C928300A45220 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF1C0E39278C928300A45220 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF1C0E14278C8CB600A45220 /* Project object */;
 }
