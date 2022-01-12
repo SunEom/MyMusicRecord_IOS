@@ -20,10 +20,20 @@ class ViewController: UIViewController {
             await self.requestHttp()
         }
         configureCollectionView()
+        addSampleContents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()
+    }
+    
+    private func addSampleContents() {
+        recentPostings.append(Posting(title: "Winter Flower", artist: "YounHa", genre: "K-POP", nickname: "Suneom", postBody: "Good..", createdDate: Date()))
+        recentPostings.append(Posting(title: "I'MMA DO", artist: "YUMDDA", genre: "HIP-HOP", nickname: "Suneom", postBody: "Good!", createdDate: Date()))
+        recentPostings.append(Posting(title: "Snowman", artist: "Sia", genre: "POP", nickname: "Suneom", postBody: "Good..😃", createdDate: Date()))
+        recentPostings.append(Posting(title: "TWINTAIL20", artist: "D-Hack", genre: "HIP-HOP", nickname: "Suneom", postBody: "My favorite Song!", createdDate: Date()))
+        recentPostings.append(Posting(title: "Have to", artist: "YounHa", genre: "K-POP", nickname: "Suneom", postBody: "Cool..", createdDate: Date()))
+        collectionView.reloadData()
     }
     
     private func configureCollectionView() {
