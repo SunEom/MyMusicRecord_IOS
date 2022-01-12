@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
+    var recentPostings: Any?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            await requestHttp()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,5 +29,21 @@ class ViewController: UIViewController {
         }
     }
 
+    
+    private func requestHttp() async {
+        await AF.request("http://localhost:8000/post").responseJSON() { response in
+          switch response.result {
+          case .success:
+            if let data = try! response.result.get() as? [String: Any] {
+                guard let postings = data["payload"] as? NSArray else { return }
+                self.recentPostings = postings
+                print(self.recentPostings)
+            }
+          case .failure(let error):
+            print("Error: \(error)")
+            return
+          }
+        }
+    }
 }
 
