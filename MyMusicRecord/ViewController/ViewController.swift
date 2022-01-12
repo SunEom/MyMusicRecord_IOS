@@ -27,8 +27,10 @@ class ViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        self.collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 25
+        self.collectionView.collectionViewLayout = layout
+        self.collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
@@ -102,6 +104,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.artistLabel.text = posting.artist
         cell.userLabel.text = posting.nickname
         cell.dateLabel.text = DateToString(date: posting.createdDate)
+        cell.imageView.image = UIImage(named: posting.genre)
         return cell
     }
     
@@ -109,7 +112,7 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 20 , height: 230)
+        return CGSize(width: UIScreen.main.bounds.width - 40 , height: ((UIScreen.main.bounds.width - 40)/360*200)+135)
     }
 }
 
