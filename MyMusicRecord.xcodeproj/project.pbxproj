@@ -18,6 +18,7 @@
 		BF1C0E43278C97F700A45220 /* SidebarNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C0E42278C97F700A45220 /* SidebarNavigationViewController.swift */; };
 		BF1C0E45278C9D2800A45220 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C0E44278C9D2800A45220 /* GenreViewController.swift */; };
 		BF4C4A68278D29CD001387EA /* RockSalt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF4C4A67278D29CD001387EA /* RockSalt-Regular.ttf */; };
+		BF4C4A6B278E8510001387EA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BF4C4A6A278E8510001387EA /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1C0E3B278C928300A45220 /* SideMenu in Frameworks */,
+				BF4C4A6B278E8510001387EA /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +125,7 @@
 			name = MyMusicRecord;
 			packageProductDependencies = (
 				BF1C0E3A278C928300A45220 /* SideMenu */,
+				BF4C4A6A278E8510001387EA /* Alamofire */,
 			);
 			productName = MyMusicRecord;
 			productReference = BF1C0E1C278C8CB600A45220 /* MyMusicRecord.app */;
@@ -154,6 +157,7 @@
 			mainGroup = BF1C0E13278C8CB600A45220;
 			packageReferences = (
 				BF1C0E39278C928300A45220 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				BF4C4A69278E8510001387EA /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = BF1C0E1D278C8CB600A45220 /* Products */;
 			projectDirPath = "";
@@ -418,6 +422,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		BF4C4A69278E8510001387EA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -425,6 +437,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF1C0E39278C928300A45220 /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		BF4C4A6A278E8510001387EA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF4C4A69278E8510001387EA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
