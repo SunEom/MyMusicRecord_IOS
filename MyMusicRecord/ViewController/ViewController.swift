@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 25
         self.collectionView.collectionViewLayout = layout
-        self.collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
+        self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
@@ -88,8 +88,20 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RecentHeaderView", for: indexPath) as! RecentHeaderView
-        return headerView
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "RecentHeaderView", for: indexPath)
+            return headerView
+        default:
+            return UICollectionReusableView()
+            
+        }
+
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width - 40 , height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -107,6 +119,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.imageView.image = UIImage(named: posting.genre)
         return cell
     }
+    
     
 }
 
