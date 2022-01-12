@@ -22,6 +22,7 @@
 		BF4C4A9A278EEE7A001387EA /* PostingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4A99278EEE7A001387EA /* PostingCell.swift */; };
 		BF4C4A9C278EF6A4001387EA /* RecentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4A9B278EF6A4001387EA /* RecentHeaderView.swift */; };
 		BF4C4A9F278EF8BD001387EA /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4A9E278EF8BD001387EA /* Posting.swift */; };
+		BF4C4AA4278F113E001387EA /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4AA3278F113E001387EA /* Env.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		BF4C4A99278EEE7A001387EA /* PostingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingCell.swift; sourceTree = "<group>"; };
 		BF4C4A9B278EF6A4001387EA /* RecentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentHeaderView.swift; sourceTree = "<group>"; };
 		BF4C4A9E278EF8BD001387EA /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
+		BF4C4AA3278F113E001387EA /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		BF1C0E1E278C8CB600A45220 /* MyMusicRecord */ = {
 			isa = PBXGroup;
 			children = (
+				BF4C4AA0278F1117001387EA /* Util */,
 				BF4C4A9D278EF89C001387EA /* Type */,
 				BF4C4A98278EEE3A001387EA /* CollectionView */,
 				BF4C4A66278D28DF001387EA /* font */,
@@ -130,6 +133,14 @@
 				BF4C4A9E278EF8BD001387EA /* Posting.swift */,
 			);
 			path = Type;
+			sourceTree = "<group>";
+		};
+		BF4C4AA0278F1117001387EA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C4AA3278F113E001387EA /* Env.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +228,7 @@
 				BF4C4A9F278EF8BD001387EA /* Posting.swift in Sources */,
 				BF1C0E20278C8CB600A45220 /* AppDelegate.swift in Sources */,
 				BF4C4A9A278EEE7A001387EA /* PostingCell.swift in Sources */,
+				BF4C4AA4278F113E001387EA /* Env.swift in Sources */,
 				BF1C0E3F278C971800A45220 /* SidebarNavigationController.swift in Sources */,
 				BF1C0E45278C9D2800A45220 /* GenreViewController.swift in Sources */,
 				BF4C4A9C278EF6A4001387EA /* RecentHeaderView.swift in Sources */,

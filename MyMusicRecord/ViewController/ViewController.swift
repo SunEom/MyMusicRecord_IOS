@@ -43,14 +43,12 @@ class ViewController: UIViewController {
 
     
     private func requestHttp() async {
-        await AF.request("http://localhost:8000/post").responseJSON() { response in
+        await AF.request("\(Env.getServerURL())/post").responseJSON() { response in
           switch response.result {
           case .success:
             if let data = try! response.result.get() as? [String: Any] {
                 guard let postings = data["payload"] as? NSArray else { return }
-                guard let post = postings[0] as? [String: Any] else { return }
-                print(post)
-                
+    
                 for posting in postings {
                     guard let posting = posting as? [String: Any] else { return }
                     guard let title = posting["title"] as? String else { return }
