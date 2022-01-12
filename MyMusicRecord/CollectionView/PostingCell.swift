@@ -17,6 +17,6 @@ class PostingCell: UICollectionViewCell {
         super.init(coder: coder)
         contentView.layer.cornerRadius = 5.0
         contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = UIColor.black.cgColor
+        contentView.layer.borderColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1.0).cgColor
     }
 }
