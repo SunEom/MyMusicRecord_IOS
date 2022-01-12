@@ -18,6 +18,10 @@
 		BF1C0E43278C97F700A45220 /* SidebarNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C0E42278C97F700A45220 /* SidebarNavigationViewController.swift */; };
 		BF1C0E45278C9D2800A45220 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C0E44278C9D2800A45220 /* GenreViewController.swift */; };
 		BF4C4A68278D29CD001387EA /* RockSalt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF4C4A67278D29CD001387EA /* RockSalt-Regular.ttf */; };
+		BF4C4A6B278E8510001387EA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BF4C4A6A278E8510001387EA /* Alamofire */; };
+		BF4C4A9A278EEE7A001387EA /* PostingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4A99278EEE7A001387EA /* PostingCell.swift */; };
+		BF4C4A9C278EF6A4001387EA /* RecentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4A9B278EF6A4001387EA /* RecentHeaderView.swift */; };
+		BF4C4A9F278EF8BD001387EA /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4A9E278EF8BD001387EA /* Posting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,9 @@
 		BF1C0E42278C97F700A45220 /* SidebarNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarNavigationViewController.swift; sourceTree = "<group>"; };
 		BF1C0E44278C9D2800A45220 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
 		BF4C4A67278D29CD001387EA /* RockSalt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RockSalt-Regular.ttf"; path = "../../../../../Downloads/Rock_Salt/RockSalt-Regular.ttf"; sourceTree = "<group>"; };
+		BF4C4A99278EEE7A001387EA /* PostingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingCell.swift; sourceTree = "<group>"; };
+		BF4C4A9B278EF6A4001387EA /* RecentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentHeaderView.swift; sourceTree = "<group>"; };
+		BF4C4A9E278EF8BD001387EA /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1C0E3B278C928300A45220 /* SideMenu in Frameworks */,
+				BF4C4A6B278E8510001387EA /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,8 @@
 		BF1C0E1E278C8CB600A45220 /* MyMusicRecord */ = {
 			isa = PBXGroup;
 			children = (
+				BF4C4A9D278EF89C001387EA /* Type */,
+				BF4C4A98278EEE3A001387EA /* CollectionView */,
 				BF4C4A66278D28DF001387EA /* font */,
 				BF1C0E47278CA57B00A45220 /* ViewController */,
 				BF1C0E46278CA56900A45220 /* Sidebar */,
@@ -105,6 +115,23 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		BF4C4A98278EEE3A001387EA /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C4A99278EEE7A001387EA /* PostingCell.swift */,
+				BF4C4A9B278EF6A4001387EA /* RecentHeaderView.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		BF4C4A9D278EF89C001387EA /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C4A9E278EF8BD001387EA /* Posting.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +150,7 @@
 			name = MyMusicRecord;
 			packageProductDependencies = (
 				BF1C0E3A278C928300A45220 /* SideMenu */,
+				BF4C4A6A278E8510001387EA /* Alamofire */,
 			);
 			productName = MyMusicRecord;
 			productReference = BF1C0E1C278C8CB600A45220 /* MyMusicRecord.app */;
@@ -154,6 +182,7 @@
 			mainGroup = BF1C0E13278C8CB600A45220;
 			packageReferences = (
 				BF1C0E39278C928300A45220 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				BF4C4A69278E8510001387EA /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = BF1C0E1D278C8CB600A45220 /* Products */;
 			projectDirPath = "";
@@ -185,9 +214,12 @@
 			files = (
 				BF1C0E43278C97F700A45220 /* SidebarNavigationViewController.swift in Sources */,
 				BF1C0E24278C8CB600A45220 /* ViewController.swift in Sources */,
+				BF4C4A9F278EF8BD001387EA /* Posting.swift in Sources */,
 				BF1C0E20278C8CB600A45220 /* AppDelegate.swift in Sources */,
+				BF4C4A9A278EEE7A001387EA /* PostingCell.swift in Sources */,
 				BF1C0E3F278C971800A45220 /* SidebarNavigationController.swift in Sources */,
 				BF1C0E45278C9D2800A45220 /* GenreViewController.swift in Sources */,
+				BF4C4A9C278EF6A4001387EA /* RecentHeaderView.swift in Sources */,
 				BF1C0E22278C8CB600A45220 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +450,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		BF4C4A69278E8510001387EA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -425,6 +465,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF1C0E39278C928300A45220 /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		BF4C4A6A278E8510001387EA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF4C4A69278E8510001387EA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
