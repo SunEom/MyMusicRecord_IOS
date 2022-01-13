@@ -38,9 +38,9 @@ class ViewController: UIViewController {
     
     private func configureCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 25
+        layout.minimumLineSpacing = 10
         self.collectionView.collectionViewLayout = layout
-        self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
@@ -123,7 +123,7 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 40 , height: ((UIScreen.main.bounds.width - 40)/360*200)+130)
+        return CGSize(width: UIScreen.main.bounds.width , height: ((UIScreen.main.bounds.width - 40)/360*200)+130)
     }
 }
 
