@@ -28,8 +28,8 @@ class GenreViewController: UIViewController {
     private func configureCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
-        layout.minimumLineSpacing = 25
-        self.collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 30, right: 0)
+        layout.minimumLineSpacing = 10
+        self.collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -106,7 +106,6 @@ extension GenreViewController: UICollectionViewDataSource {
 
 extension GenreViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width , height: ((UIScreen.main.bounds.width - 40)/360*200)+150
-        )
+        return CGSize(width: UIScreen.main.bounds.width , height: ((UIScreen.main.bounds.width - 40)/360*200)+130)
     }
 }
