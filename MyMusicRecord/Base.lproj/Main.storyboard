@@ -318,10 +318,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-hP-uN1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3e-7v-yFW">
-                                                    <rect key="frame" x="12" y="138" width="390" height="108"/>
+                                                    <rect key="frame" x="12" y="145" width="390" height="101"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-jc-WXq">
                                                             <rect key="frame" x="0.0" y="0.0" width="52.5" height="28.5"/>
@@ -330,23 +330,23 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idH-Nf-Pya">
-                                                            <rect key="frame" x="0.0" y="45.5" width="42" height="24"/>
-                                                            <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="45.5" width="37" height="21.5"/>
+                                                            <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="108" translatesAutoresizingMaskIntoConstraints="NO" id="dML-LW-pDk">
-                                                            <rect key="frame" x="0.0" y="86.5" width="390" height="21.5"/>
+                                                            <rect key="frame" x="0.0" y="84" width="390" height="17"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJh-pl-Kdm">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="245" height="21.5"/>
-                                                                    <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="252.5" height="17"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="12"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUf-sH-oOI">
-                                                                    <rect key="frame" x="353" y="0.0" width="37" height="21.5"/>
-                                                                    <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
+                                                                    <rect key="frame" x="360.5" y="0.0" width="29.5" height="17"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="12"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
