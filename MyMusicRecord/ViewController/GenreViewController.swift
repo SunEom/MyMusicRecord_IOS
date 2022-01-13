@@ -35,11 +35,12 @@ class GenreViewController: UIViewController {
     }
      
     private func addSampleContents() {
-        genrePostings.append(Posting(title: "Winter Flower", artist: "YounHa", genre: "K-POP", nickname: "Suneom", postBody: "Good..", createdDate: Date()))
-        genrePostings.append(Posting(title: "I'MMA DO", artist: "YUMDDA", genre: "HIP-HOP", nickname: "Suneom", postBody: "Good!", createdDate: Date()))
-        genrePostings.append(Posting(title: "Snowman", artist: "Sia", genre: "POP", nickname: "Suneom", postBody: "Good..😃", createdDate: Date()))
-        genrePostings.append(Posting(title: "TWINTAIL20", artist: "D-Hack", genre: "HIP-HOP", nickname: "Suneom", postBody: "My favorite Song!", createdDate: Date()))
-        genrePostings.append(Posting(title: "Have to", artist: "YounHa", genre: "K-POP", nickname: "Suneom", postBody: "Cool..", createdDate: Date()))
+        print(genre!)
+        genrePostings.append(Posting(title: "Winter Flower", artist: "YounHa", genre: genre!.uppercased(), nickname: "Suneom", postBody: "Good..", createdDate: Date()))
+        genrePostings.append(Posting(title: "I'MMA DO", artist: "YUMDDA", genre: genre!.uppercased(), nickname: "Suneom", postBody: "Good!", createdDate: Date()))
+        genrePostings.append(Posting(title: "Snowman", artist: "Sia", genre: genre!.uppercased(), nickname: "Suneom", postBody: "Good..😃", createdDate: Date()))
+        genrePostings.append(Posting(title: "TWINTAIL20", artist: "D-Hack", genre: genre!.uppercased(), nickname: "Suneom", postBody: "My favorite Song!", createdDate: Date()))
+        genrePostings.append(Posting(title: "Have to", artist: "YounHa", genre: genre!.uppercased(), nickname: "Suneom", postBody: "Cool..", createdDate: Date()))
         collectionView.reloadData()
     }
     
