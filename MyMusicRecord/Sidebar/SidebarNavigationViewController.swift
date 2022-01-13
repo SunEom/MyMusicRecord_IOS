@@ -18,6 +18,7 @@ class SidebarNavigationViewController: UIViewController {
     @IBAction func tapGenreButton(_ sender: UIButton) {
         guard let genreViewController = self.storyboard?.instantiateViewController(withIdentifier: "GenreViewController") as? GenreViewController else { return }
         genreViewController.genre = sender.titleLabel!.text
+        genreViewController.navigationItem.title = sender.titleLabel?.text
         self.navigationController?.pushViewController(genreViewController, animated: true)
     }
 }
