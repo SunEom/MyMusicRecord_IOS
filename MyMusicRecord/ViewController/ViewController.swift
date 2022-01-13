@@ -67,7 +67,7 @@ class ViewController: UIViewController {
                     guard let genre = posting["genre"] as? String else { return }
                     guard let postBody = posting["post_body"] as? String else { return }
                     guard let created = posting["created_date"] as? String else { return }
-                    guard let createdDate = self.StringToDate(date: String(created.split(separator: "T")[0])) else { return }
+                    guard let createdDate = Util.StringToDate(date: String(created.split(separator: "T")[0])) else { return }
                                                               
                     self.recentPostings.append(Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, createdDate: createdDate))
                 }
@@ -81,17 +81,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func StringToDate(date: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.date(from: date)
-    }
     
-    private func DateToString(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일(EEEEE)"
-        return dateFormatter.string(from: date)
-    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -123,7 +113,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.titleLabel.text = posting.title
         cell.artistLabel.text = posting.artist
         cell.userLabel.text = posting.nickname
-        cell.dateLabel.text = DateToString(date: posting.createdDate)
+        cell.dateLabel.text = Util.DateToString(date: posting.createdDate)
         cell.imageView.image = UIImage(named: posting.genre)
         return cell
     }
@@ -133,7 +123,7 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 40 , height: ((UIScreen.main.bounds.width - 40)/360*200)+135)
+        return CGSize(width: UIScreen.main.bounds.width - 40 , height: ((UIScreen.main.bounds.width - 40)/360*200)+130)
     }
 }
 

@@ -35,31 +35,31 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" axis="vertical" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="18I-uX-9wQ">
-                                                    <rect key="frame" x="15" y="119" width="384" height="100"/>
+                                                    <rect key="frame" x="15" y="203" width="384" height="16"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fO-Yv-nhc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="28"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HD-In-jkd">
-                                                            <rect key="frame" x="0.0" y="36" width="42" height="28"/>
+                                                            <rect key="frame" x="0.0" y="8" width="42" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="4oc-e6-GgU">
-                                                            <rect key="frame" x="0.0" y="72" width="384" height="28"/>
+                                                            <rect key="frame" x="0.0" y="16" width="384" height="0.0"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="may-b9-pgh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="28"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="0.0"/>
                                                                     <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0Y-1x-g6I">
-                                                                    <rect key="frame" x="92" y="0.0" width="292" height="28"/>
+                                                                    <rect key="frame" x="92" y="0.0" width="292" height="0.0"/>
                                                                     <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -74,7 +74,10 @@
                                                     </constraints>
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="rock" translatesAutoresizingMaskIntoConstraints="NO" id="cfR-gy-duz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="193"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="cfR-gy-duz" secondAttribute="height" multiplier="210:120" id="2iN-xo-Af9"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -297,25 +300,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjJ-g1-loI">
-                                <rect key="frame" x="186" y="438" width="47" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CTZ-nG-qPf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y2e-OP-Gbg">
+                                    <size key="itemSize" width="414" height="258"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PostingCell" reuseIdentifier="PostingCell" id="k4S-cg-1OE" customClass="PostingCell" customModule="MyMusicRecord" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="258"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="geh-jw-fmL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="258"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-hP-uN1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3e-7v-yFW">
+                                                    <rect key="frame" x="12" y="138" width="390" height="108"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-jc-WXq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="52.5" height="28.5"/>
+                                                            <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idH-Nf-Pya">
+                                                            <rect key="frame" x="0.0" y="45.5" width="42" height="24"/>
+                                                            <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="108" translatesAutoresizingMaskIntoConstraints="NO" id="dML-LW-pDk">
+                                                            <rect key="frame" x="0.0" y="86.5" width="390" height="21.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJh-pl-Kdm">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="245" height="21.5"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUf-sH-oOI">
+                                                                    <rect key="frame" x="353" y="0.0" width="37" height="21.5"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
+                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="dML-LW-pDk" secondAttribute="trailing" id="DZE-ev-Q33"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Jbj-hP-uN1" secondAttribute="trailing" id="Ge9-p8-h3a"/>
+                                                <constraint firstAttribute="bottom" secondItem="r3e-7v-yFW" secondAttribute="bottom" constant="12" id="KJW-k4-CAi"/>
+                                                <constraint firstItem="r3e-7v-yFW" firstAttribute="leading" secondItem="geh-jw-fmL" secondAttribute="leading" constant="12" id="OZ7-ls-q3N"/>
+                                                <constraint firstItem="Jbj-hP-uN1" firstAttribute="top" secondItem="geh-jw-fmL" secondAttribute="top" id="jAW-QA-XCX"/>
+                                                <constraint firstItem="Jbj-hP-uN1" firstAttribute="leading" secondItem="geh-jw-fmL" secondAttribute="leading" id="u19-Ib-Mcf"/>
+                                                <constraint firstItem="r3e-7v-yFW" firstAttribute="top" secondItem="Jbj-hP-uN1" secondAttribute="bottom" constant="12" id="wEt-hI-pik"/>
+                                                <constraint firstAttribute="trailing" secondItem="r3e-7v-yFW" secondAttribute="trailing" constant="12" id="xEY-bv-ylN"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="258"/>
+                                        <connections>
+                                            <outlet property="artistLabel" destination="idH-Nf-Pya" id="0Rj-LO-PKD"/>
+                                            <outlet property="dateLabel" destination="BUf-sH-oOI" id="MSz-VO-BHO"/>
+                                            <outlet property="imageView" destination="Jbj-hP-uN1" id="jH5-22-zgZ"/>
+                                            <outlet property="titleLabel" destination="jEV-jc-WXq" id="6cN-v2-N6g"/>
+                                            <outlet property="userLabel" destination="GJh-pl-Kdm" id="9gb-b4-r1x"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y6f-mc-GeX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="y6f-mc-GeX" firstAttribute="bottom" secondItem="CTZ-nG-qPf" secondAttribute="bottom" id="4M1-i4-iD5"/>
+                            <constraint firstItem="CTZ-nG-qPf" firstAttribute="top" secondItem="y6f-mc-GeX" secondAttribute="top" id="YDu-4Q-vnG"/>
+                            <constraint firstItem="y6f-mc-GeX" firstAttribute="trailing" secondItem="CTZ-nG-qPf" secondAttribute="trailing" id="ixw-yD-AkF"/>
+                            <constraint firstItem="CTZ-nG-qPf" firstAttribute="leading" secondItem="y6f-mc-GeX" secondAttribute="leading" id="rHO-bw-7L6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xof-w7-upu"/>
                     <connections>
-                        <outlet property="titleTextView" destination="MjJ-g1-loI" id="LzJ-oA-sTL"/>
+                        <outlet property="collectionView" destination="CTZ-nG-qPf" id="udu-B9-lAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMb-y4-w1Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968" y="800"/>
+            <point key="canvasLocation" x="966.66666666666674" y="799.55357142857144"/>
         </scene>
     </scenes>
     <resources>
