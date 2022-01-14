@@ -109,3 +109,11 @@ extension GenreViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: UIScreen.main.bounds.width , height: ((UIScreen.main.bounds.width - 40)/360*200)+130)
     }
 }
+
+extension GenreViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
+        viewController.post = self.genrePostings[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}

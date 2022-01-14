@@ -17,7 +17,7 @@ class Util {
     static func DateToString(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko-KR")
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일(EEEEE)"
+        dateFormatter.dateFormat = "yyyy. MM. dd. (EEEEE)"
         return dateFormatter.string(from: date)
     }
 }
