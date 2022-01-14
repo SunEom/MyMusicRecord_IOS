@@ -609,6 +609,7 @@
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Co6-UI-WhP" secondAttribute="trailing" id="2Ui-nu-3Ol"/>
                                             <constraint firstItem="kmM-Yb-nhz" firstAttribute="top" secondItem="xsF-fS-Wvs" secondAttribute="top" constant="24" id="3xq-w0-Jyk"/>
@@ -634,6 +635,9 @@
                                             <constraint firstAttribute="trailing" secondItem="kmM-Yb-nhz" secondAttribute="trailing" constant="24" id="uf5-aj-gom"/>
                                             <constraint firstItem="Co6-UI-WhP" firstAttribute="top" secondItem="hdw-Ea-YIE" secondAttribute="bottom" constant="12" id="vSb-qg-js7"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Uqk-Af-ksS" appends="YES" id="Yge-1f-IJB"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -664,12 +668,18 @@
                         <outlet property="dateLabel" destination="mVy-B0-7nR" id="QXi-7W-bOX"/>
                         <outlet property="genreLabel" destination="Kex-GM-KlK" id="De1-Xn-Nzh"/>
                         <outlet property="postBodyTextView" destination="Nzy-c9-h8i" id="PTG-tc-M9D"/>
+                        <outlet property="scrollView" destination="DH8-cR-tJR" id="KPv-Ue-qjF"/>
                         <outlet property="titleLabel" destination="Y09-O7-E4h" id="aTu-DE-euE"/>
                         <outlet property="topDivider" destination="nHW-P4-Rym" id="6uY-QL-BgT"/>
                         <outlet property="userLabel" destination="OUA-aM-ztJ" id="S70-EC-0cj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKM-zf-8KC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Uqk-Af-ksS">
+                    <connections>
+                        <action selector="tapBackgroundView:" destination="tND-LO-nqg" id="vh0-j1-3Jm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="966.66666666666674" y="114.50892857142857"/>
         </scene>

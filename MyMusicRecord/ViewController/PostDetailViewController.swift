@@ -20,15 +20,19 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var commentInputTextView: UITextView!
     @IBOutlet weak var commentDivider: UITextView!
     @IBOutlet weak var commentTitleLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var post: Posting?
     var comments = [Comment]()
+    
+    var isKeyboardVisible: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureCommentCollectionView()
         addCommentSamples()
+        setKeyboardObserver()
     }
     
     private func configureViewController() {
@@ -83,6 +87,9 @@ class PostDetailViewController: UIViewController {
         commentCollectioinView.reloadData()
     }
 
+    @IBAction func tapBackgroundView(_ sender: Any) {
+        view.endEditing(true)
+    }
 }
 
 extension PostDetailViewController: UICollectionViewDataSource {
@@ -109,5 +116,45 @@ extension PostDetailViewController: UICollectionViewDataSource {
 extension PostDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 130)
+    }
+}
+
+extension PostDetailViewController {
+    func setKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object:nil)
+    }
+        
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if isKeyboardVisible {
+            return
+        }
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            UIView.animate(withDuration: 1) {
+                self.view.window?.frame.origin.y -= keyboardHeight
+            }
+            isKeyboardVisible = true
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if !isKeyboardVisible {
+            return
+        }
+        
+        if self.view.window?.frame.origin.y != 0 {
+            if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                let keyboardRectangle = keyboardFrame.cgRectValue
+                let keyboardHeight = keyboardRectangle.height
+                UIView.animate(withDuration: 1) {
+                    self.view.window?.frame.origin.y += keyboardHeight
+                }
+                isKeyboardVisible = false
+            }
+        }
     }
 }
