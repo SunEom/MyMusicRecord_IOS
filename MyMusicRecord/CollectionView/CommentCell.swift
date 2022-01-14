@@ -8,5 +8,7 @@
 import UIKit
 
 class CommentCell: UICollectionViewCell {
-    
+    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var contentsTextView: UITextView!
+    @IBOutlet weak var divider: UITextView!
 }

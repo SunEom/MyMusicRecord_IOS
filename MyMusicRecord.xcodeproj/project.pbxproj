@@ -28,6 +28,7 @@
 		BFD9EFA227913301009736F6 /* RockSalt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9F27913301009736F6 /* RockSalt-Regular.ttf */; };
 		BFD9EFA427913400009736F6 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9EFA327913400009736F6 /* PostDetailViewController.swift */; };
 		BFDB201C27915C4D003BC65D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB201B27915C4D003BC65D /* Comment.swift */; };
+		BFDB201E27916631003BC65D /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB201D27916631003BC65D /* CommentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		BFD9EF9F27913301009736F6 /* RockSalt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RockSalt-Regular.ttf"; sourceTree = "<group>"; };
 		BFD9EFA327913400009736F6 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		BFDB201B27915C4D003BC65D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		BFDB201D27916631003BC65D /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				BF4C4A99278EEE7A001387EA /* PostingCell.swift */,
 				BF4C4A9B278EF6A4001387EA /* RecentHeaderView.swift */,
+				BFDB201D27916631003BC65D /* CommentCell.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				BF1C0E45278C9D2800A45220 /* GenreViewController.swift in Sources */,
 				BF4C4A9C278EF6A4001387EA /* RecentHeaderView.swift in Sources */,
 				BF1C0E22278C8CB600A45220 /* SceneDelegate.swift in Sources */,
+				BFDB201E27916631003BC65D /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

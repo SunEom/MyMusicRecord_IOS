@@ -14,15 +14,21 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var postBodyTextView: UITextView!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bottomDivider: UITextView!
     @IBOutlet weak var topDivider: UITextView!
+    @IBOutlet weak var commentCollectioinView: UICollectionView!
+    @IBOutlet weak var commentInputTextView: UITextView!
+    @IBOutlet weak var commentDivider: UITextView!
+    @IBOutlet weak var commentTitleLabel: UILabel!
     
     var post: Posting?
+    var comments = [Comment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureCommentCollectionView()
+        addCommentSamples()
     }
     
     private func configureViewController() {
@@ -45,6 +51,63 @@ class PostDetailViewController: UIViewController {
         topDivider.layer.borderColor = UIColor.gray.cgColor
         bottomDivider.layer.borderWidth = 1.0
         bottomDivider.layer.borderColor = UIColor.gray.cgColor
+        commentDivider.layer.borderWidth = 1.0
+        commentDivider.layer.borderColor = UIColor.gray.cgColor
+        
+        commentInputTextView.layer.borderColor = UIColor.black.cgColor
+        commentInputTextView.layer.borderWidth = 0.5
+    }
+    
+    private func configureCommentCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        commentCollectioinView.collectionViewLayout = layout
+        commentCollectioinView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        commentCollectioinView.delegate = self
+        commentCollectioinView.dataSource = self
+    }
+    
+    private func addCommentSamples() {
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello1", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello2", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello3", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello4", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello5", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello6", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello7", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello8", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello9", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
+        
+        commentTitleLabel.text = "Comments (\(self.comments.count))"
+        
+        commentCollectioinView.reloadData()
     }
 
+}
+
+extension PostDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommentCell", for: indexPath) as? CommentCell else { return UICollectionViewCell()}
+        
+        let comment = comments[indexPath.row]
+        
+        cell.nicknameLabel.text = comment.nickname
+        cell.contentsTextView.text = comment.contents
+        cell.contentsTextView.textContainerInset = UIEdgeInsets(top: 3, left: -5, bottom: 0, right: 0)
+        
+        cell.divider.layer.borderWidth = 0.5
+        cell.divider.layer.borderColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0).cgColor
+        
+        return cell
+    }
+}
+
+extension PostDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 130)
+    }
 }
