@@ -127,3 +127,10 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
+        viewController.post = recentPostings[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}

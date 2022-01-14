@@ -21,3 +21,4 @@ class PostingCell: UICollectionViewCell {
         
     }
 }
+

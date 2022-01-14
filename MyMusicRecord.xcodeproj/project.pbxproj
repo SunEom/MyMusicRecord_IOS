@@ -26,6 +26,7 @@
 		BFD9EFA027913301009736F6 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9D27913301009736F6 /* Lato-Regular.ttf */; };
 		BFD9EFA127913301009736F6 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9E27913301009736F6 /* Lato-Bold.ttf */; };
 		BFD9EFA227913301009736F6 /* RockSalt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9F27913301009736F6 /* RockSalt-Regular.ttf */; };
+		BFD9EFA427913400009736F6 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9EFA327913400009736F6 /* PostDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		BFD9EF9D27913301009736F6 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		BFD9EF9E27913301009736F6 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		BFD9EF9F27913301009736F6 /* RockSalt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RockSalt-Regular.ttf"; sourceTree = "<group>"; };
+		BFD9EFA327913400009736F6 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				BF1C0E44278C9D2800A45220 /* GenreViewController.swift */,
 				BF1C0E23278C8CB600A45220 /* ViewController.swift */,
+				BFD9EFA327913400009736F6 /* PostDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF42E506279075F4000E9B92 /* Util.swift in Sources */,
+				BFD9EFA427913400009736F6 /* PostDetailViewController.swift in Sources */,
 				BF1C0E43278C97F700A45220 /* SidebarNavigationViewController.swift in Sources */,
 				BF1C0E24278C8CB600A45220 /* ViewController.swift in Sources */,
 				BF4C4A9F278EF8BD001387EA /* Posting.swift in Sources */,
