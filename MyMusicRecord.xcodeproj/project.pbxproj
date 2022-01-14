@@ -27,6 +27,7 @@
 		BFD9EFA127913301009736F6 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9E27913301009736F6 /* Lato-Bold.ttf */; };
 		BFD9EFA227913301009736F6 /* RockSalt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9F27913301009736F6 /* RockSalt-Regular.ttf */; };
 		BFD9EFA427913400009736F6 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9EFA327913400009736F6 /* PostDetailViewController.swift */; };
+		BFDB201C27915C4D003BC65D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB201B27915C4D003BC65D /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		BFD9EF9E27913301009736F6 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		BFD9EF9F27913301009736F6 /* RockSalt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RockSalt-Regular.ttf"; sourceTree = "<group>"; };
 		BFD9EFA327913400009736F6 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		BFDB201B27915C4D003BC65D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		BF4C4A9D278EF89C001387EA /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				BFDB201B27915C4D003BC65D /* Comment.swift */,
 				BF4C4A9E278EF8BD001387EA /* Posting.swift */,
 			);
 			path = Type;
@@ -245,6 +248,7 @@
 				BF1C0E20278C8CB600A45220 /* AppDelegate.swift in Sources */,
 				BF4C4A9A278EEE7A001387EA /* PostingCell.swift in Sources */,
 				BF4C4AA4278F113E001387EA /* Env.swift in Sources */,
+				BFDB201C27915C4D003BC65D /* Comment.swift in Sources */,
 				BF1C0E3F278C971800A45220 /* SidebarNavigationController.swift in Sources */,
 				BF1C0E45278C9D2800A45220 /* GenreViewController.swift in Sources */,
 				BF4C4A9C278EF6A4001387EA /* RecentHeaderView.swift in Sources */,
