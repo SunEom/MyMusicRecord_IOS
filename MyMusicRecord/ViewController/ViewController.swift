@@ -81,6 +81,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func tapUserButton(_ sender: Any) {
+        guard let viewContainer = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") else { return }
+        self.navigationController?.pushViewController(viewContainer, animated: true)
+    }
     
 }
 
