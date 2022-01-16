@@ -24,6 +24,7 @@
 		BF4C4A9F278EF8BD001387EA /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4A9E278EF8BD001387EA /* Posting.swift */; };
 		BF4C4AA4278F113E001387EA /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4AA3278F113E001387EA /* Env.swift */; };
 		BFAC32B42792ED94001A05CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC32B32792ED94001A05CE /* LoginViewController.swift */; };
+		BFD778562793BADC008A95A1 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD778552793BADC008A95A1 /* JoinViewController.swift */; };
 		BFD9EFA027913301009736F6 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9D27913301009736F6 /* Lato-Regular.ttf */; };
 		BFD9EFA127913301009736F6 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9E27913301009736F6 /* Lato-Bold.ttf */; };
 		BFD9EFA227913301009736F6 /* RockSalt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9F27913301009736F6 /* RockSalt-Regular.ttf */; };
@@ -50,6 +51,7 @@
 		BF4C4A9E278EF8BD001387EA /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
 		BF4C4AA3278F113E001387EA /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		BFAC32B32792ED94001A05CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BFD778552793BADC008A95A1 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		BFD9EF9D27913301009736F6 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		BFD9EF9E27913301009736F6 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		BFD9EF9F27913301009736F6 /* RockSalt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RockSalt-Regular.ttf"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				BF1C0E23278C8CB600A45220 /* ViewController.swift */,
 				BFD9EFA327913400009736F6 /* PostDetailViewController.swift */,
 				BFAC32B32792ED94001A05CE /* LoginViewController.swift */,
+				BFD778552793BADC008A95A1 /* JoinViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			files = (
 				BF42E506279075F4000E9B92 /* Util.swift in Sources */,
 				BFD9EFA427913400009736F6 /* PostDetailViewController.swift in Sources */,
+				BFD778562793BADC008A95A1 /* JoinViewController.swift in Sources */,
 				BF1C0E43278C97F700A45220 /* SidebarNavigationViewController.swift in Sources */,
 				BFAC32B42792ED94001A05CE /* LoginViewController.swift in Sources */,
 				BF1C0E24278C8CB600A45220 /* ViewController.swift in Sources */,
