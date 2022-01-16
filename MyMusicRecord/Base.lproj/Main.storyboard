@@ -182,11 +182,12 @@
                                                                                 <subviews>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력해주세요 ( 5~ 12자 )" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="bhw-Ua-CYj">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="244" height="40"/>
+                                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="40" id="xNB-UH-pJy"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" textContentType="username"/>
+                                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" textContentType="username"/>
                                                                                     </textField>
                                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlq-ag-eIE">
                                                                                         <rect key="frame" x="249" y="0.0" width="125" height="40"/>
@@ -224,11 +225,12 @@
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="muD-PX-hqA">
                                                                                 <rect key="frame" x="0.0" y="28.5" width="374" height="40"/>
+                                                                                <color key="tintColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="FGN-f7-MGY"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" textContentType="username"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" secureTextEntry="YES" textContentType="username"/>
                                                                             </textField>
                                                                         </subviews>
                                                                         <constraints>
@@ -247,11 +249,12 @@
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 다시 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Krn-aK-T9E">
                                                                                 <rect key="frame" x="0.0" y="28.5" width="374" height="40"/>
+                                                                                <color key="tintColor" systemColor="labelColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="gQb-2j-xB0"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" textContentType="username"/>
+                                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" secureTextEntry="YES" textContentType="username"/>
                                                                             </textField>
                                                                         </subviews>
                                                                         <constraints>
@@ -273,11 +276,12 @@
                                                                                 <subviews>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="닉네임을 입력하세요" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Zwp-72-Da4">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="244" height="40"/>
+                                                                                        <color key="tintColor" systemColor="labelColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="40" id="hrK-MI-WRo"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" textContentType="username"/>
+                                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" textContentType="username"/>
                                                                                     </textField>
                                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-xR-IWr">
                                                                                         <rect key="frame" x="249" y="0.0" width="125" height="40"/>
@@ -376,7 +380,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="uRS-7v-jFC"/>
                     <connections>
+                        <outlet property="idCheckbutton" destination="hlq-ag-eIE" id="tfd-HH-q9L"/>
                         <outlet property="idTextField" destination="bhw-Ua-CYj" id="Wfv-eG-Pca"/>
+                        <outlet property="nicknameCheckButton" destination="8fU-xR-IWr" id="hbx-X8-QJD"/>
                         <outlet property="nicknameTextField" destination="Zwp-72-Da4" id="5vw-Sz-9h8"/>
                         <outlet property="passwordCheckTextField" destination="Krn-aK-T9E" id="8ES-Wd-aG8"/>
                         <outlet property="passwordTextField" destination="muD-PX-hqA" id="Mlp-Hq-GGd"/>

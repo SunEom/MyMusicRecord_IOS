@@ -13,6 +13,8 @@ class JoinViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet weak var nicknameTextField: UITextField!
+    @IBOutlet weak var idCheckbutton: UIButton!
+    @IBOutlet weak var nicknameCheckButton: UIButton!
     
     var isIDAvailable: Bool = false
     var isNicknameAvailable: Bool = false
@@ -27,6 +29,10 @@ class JoinViewController: UIViewController {
     }
 
     private func requestIDCheck() {
+        if let length = idTextField.text?.count, length < 5 {
+            print("ID는 5글자 이상 입력해야합니다.")
+            return
+        }
         print("ID 중복확인을 요청합니다.")
         self.isIDAvailable = true
     }
@@ -51,6 +57,11 @@ class JoinViewController: UIViewController {
     private func configureViewController() {
         idTextField.addTarget(self, action: #selector(self.idTextFieldDidChange(_:)), for: .editingChanged)
         nicknameTextField.addTarget(self, action: #selector(self.nicknameTextFieldDidChange(_:)), for: .editingChanged)
+        
+        idTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordCheckTextField.delegate = self
+        nicknameTextField.delegate = self
     }
     
     @objc private func idTextFieldDidChange(_ sender: Any?) {
@@ -101,11 +112,8 @@ extension JoinViewController {
             return
         }
         
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+        if let _: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             if idTextField.isEditing { return }
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            guard let navigationBarHeight = self.navigationController?.navigationBar.frame.height else { return }
             UIView.animate(withDuration: 0.5) {
                 self.view.window?.frame.origin.y -= 200
             }
@@ -121,10 +129,7 @@ extension JoinViewController {
         
         if self.view.window?.frame.origin.y != 0 {
             if !self.isViewMoved { return }
-            if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-                let keyboardRectangle = keyboardFrame.cgRectValue
-                let keyboardHeight = keyboardRectangle.height
-                guard let navigationBarHeight = self.navigationController?.navigationBar.frame.height else { return }
+            if let _: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
                 UIView.animate(withDuration: 0.5) {
                     self.view.window?.frame.origin.y += 200
                 }
@@ -132,5 +137,38 @@ extension JoinViewController {
                 self.isKeyboardVisible = false
             }
         }
+    }
+}
+
+extension JoinViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.count + string.count - range.length
+        if textField == idTextField {
+            return newLength <= 12
+        } else if textField == passwordTextField || textField == passwordCheckTextField {
+            return newLength <= 15
+        } else {
+            return newLength <= 10
+        }
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == idTextField {
+            idCheckbutton.sendActions(for: .touchUpInside)
+            self.view.endEditing(true)
+        } else if textField == passwordTextField {
+            self.view.endEditing(true)
+            passwordCheckTextField.becomeFirstResponder()
+        } else if textField == passwordCheckTextField {
+            self.view.endEditing(true)
+            nicknameTextField.becomeFirstResponder()
+        } else if textField == nicknameTextField {
+            nicknameCheckButton.sendActions(for: .touchUpInside)
+            self.view.endEditing(true)
+        }
+        return true
     }
 }
