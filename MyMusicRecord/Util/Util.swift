@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Util {
     static func StringToDate(date: String) -> Date? {
@@ -19,5 +20,11 @@ class Util {
         dateFormatter.locale = Locale(identifier: "ko-KR")
         dateFormatter.dateFormat = "yyyy. MM. dd. (EEEEE)"
         return dateFormatter.string(from: date)
+    }
+    
+    static func createSimpleAlert(_ viewController: UIViewController, title: String, message: String, completion: (()->Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        viewController.present(alert, animated: true, completion: completion)
     }
 }
