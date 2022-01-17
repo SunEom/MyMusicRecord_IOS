@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QUn-4P-Qgx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rht-RN-148">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -1132,15 +1132,13 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrm-T6-Zel">
-                                        <rect key="frame" x="0.0" y="25.5" width="366" height="47.5"/>
+                                        <rect key="frame" x="14.5" y="25.5" width="337" height="47.5"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="qrm-T6-Zel" secondAttribute="trailing" id="0Jm-yR-lo9"/>
-                                    <constraint firstItem="qrm-T6-Zel" firstAttribute="leading" secondItem="v1Z-Xp-7ZU" secondAttribute="leading" id="3C0-mN-1Lw"/>
                                     <constraint firstItem="qrm-T6-Zel" firstAttribute="top" secondItem="S3Z-vn-PLw" secondAttribute="bottom" constant="2" id="n21-EW-RZ4"/>
                                 </constraints>
                             </stackView>

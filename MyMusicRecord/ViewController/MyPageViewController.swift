@@ -18,11 +18,55 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var preferGenreLabel: UILabel!
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDiviers()
-        configureTitleLabels()
+        configureViewController()
+    }
+    
+    private func configureViewController() {
+        guard let user = self.user else { return }
+        
+        self.setNickname(user: user)
+        self.setAboutMe(user: user)
+        self.setPreferGenres(user: user)
+    }
+    
+    private func setNickname(user: User) {
+        self.nicknameLabel.text = user.nickname
+    }
+    
+    private func setAboutMe(user: User) {
+        if let aboutMe = self.user?.aboutMe {
+            self.aboutMeTextView.text = aboutMe
+        } else {
+            self.aboutMeTextView.text = "None"
         }
+        
+        // About Me Width 조정
+        let fixedWidth = self.aboutMeTextView.frame.size.width
+        let newSize = self.aboutMeTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        self.aboutMeTextView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+    }
+    
+    private func setPreferGenres(user: User) {
+        if user.genres.count == 0 {
+            self.preferGenreLabel.text = "None"
+            return
+        }
+        
+        var tempString = ""
+        
+        for gen in user.genres {
+            guard let gen = gen as? String else { return }
+            tempString += "\(gen), "
+        }
+        
+        guard let subIndex = tempString.lastIndex(of: ",") else { return }
+        self.preferGenreLabel.text = tempString.substring(to: subIndex)
+    }
     
     private func configureDiviers(){
         nicknameDivider.layer.borderColor = UIColor.gray.cgColor
@@ -32,12 +76,6 @@ class MyPageViewController: UIViewController {
         nicknameDivider.layer.borderWidth = 1.0
         aboutMeDivider.layer.borderWidth = 1.0
         preferGenreDivider.layer.borderWidth = 1.0
-    }
-    
-    private func configureTitleLabels() {
-        nicknameTitleLabel.sizeToFit()
-        aboutmeTitleLabel.sizeToFit()
-        preferGenreTitleLabel.sizeToFit()
     }
     
 }

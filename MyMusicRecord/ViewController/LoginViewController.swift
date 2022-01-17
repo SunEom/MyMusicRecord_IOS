@@ -74,7 +74,6 @@ class LoginViewController: UIViewController {
 
     @IBAction func tapLoginButton(_ sender: Any) {
         sendLoginRequest()
-        
     }
     
     @IBAction func tapJoinButton(_ sender: Any) {
