@@ -1179,6 +1179,18 @@
                                     <constraint firstItem="O1S-pR-apz" firstAttribute="width" secondItem="KFd-Pk-stT" secondAttribute="width" id="NvO-aj-qlh"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxT-lZ-Bdc">
+                                <rect key="frame" x="162" y="545" width="90.5" height="37"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out">
+                                    <fontDescription key="titleFontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
+                                    <color key="baseForegroundColor" red="0.96078431369999995" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapLogOutButton:" destination="QUn-4P-Qgx" eventType="touchUpInside" id="4HU-6K-Mzy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vGZ-rP-R16"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1188,6 +1200,8 @@
                             <constraint firstItem="vGZ-rP-R16" firstAttribute="trailing" secondItem="v1Z-Xp-7ZU" secondAttribute="trailing" constant="24" id="B5Q-mJ-mGu"/>
                             <constraint firstItem="57a-kx-hl2" firstAttribute="top" secondItem="v1Z-Xp-7ZU" secondAttribute="bottom" constant="50" id="GBT-Tc-58d"/>
                             <constraint firstItem="efQ-jc-CVE" firstAttribute="leading" secondItem="vGZ-rP-R16" secondAttribute="leading" constant="24" id="GEL-jM-R04"/>
+                            <constraint firstItem="pxT-lZ-Bdc" firstAttribute="centerX" secondItem="57a-kx-hl2" secondAttribute="centerX" id="HrD-A4-juR"/>
+                            <constraint firstItem="pxT-lZ-Bdc" firstAttribute="top" secondItem="57a-kx-hl2" secondAttribute="bottom" constant="80" id="IHv-sR-bWE"/>
                             <constraint firstItem="kIE-fy-V5h" firstAttribute="leading" secondItem="vGZ-rP-R16" secondAttribute="leading" constant="24" id="SEs-Aj-3UA"/>
                             <constraint firstItem="v1Z-Xp-7ZU" firstAttribute="leading" secondItem="vGZ-rP-R16" secondAttribute="leading" constant="24" id="Uvl-GZ-c2V"/>
                             <constraint firstItem="v1Z-Xp-7ZU" firstAttribute="top" secondItem="efQ-jc-CVE" secondAttribute="bottom" constant="45" id="VBS-YH-Ztr"/>
@@ -1201,6 +1215,7 @@
                         <outlet property="aboutMeDivider" destination="S3Z-vn-PLw" id="XrT-Eq-cCK"/>
                         <outlet property="aboutMeTextView" destination="qrm-T6-Zel" id="2aM-Qr-R0l"/>
                         <outlet property="aboutmeTitleLabel" destination="cVD-g1-W2c" id="JF4-eC-qWQ"/>
+                        <outlet property="logOutButton" destination="pxT-lZ-Bdc" id="Mvy-fP-6pr"/>
                         <outlet property="nicknameDivider" destination="NpV-Ht-geP" id="dP1-uy-GNz"/>
                         <outlet property="nicknameLabel" destination="N4V-Ko-wwJ" id="eYd-WW-XUJ"/>
                         <outlet property="nicknameTitleLabel" destination="fYq-6B-HEJ" id="6aw-dG-1e3"/>

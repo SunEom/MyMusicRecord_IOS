@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MyPageViewController: UIViewController {
     @IBOutlet weak var nicknameDivider: UITextView!
@@ -17,6 +18,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var preferGenreLabel: UILabel!
+    @IBOutlet weak var logOutButton: UIButton!
     
     var user: User?
     
@@ -78,4 +80,23 @@ class MyPageViewController: UIViewController {
         preferGenreDivider.layer.borderWidth = 1.0
     }
     
+    @IBAction func tapLogOutButton(_ sender: Any) {
+        AF.request("\(Env.getServerURL())/auth/login", method: .get)
+            .validate(statusCode: 200..<300)
+            .responseJSON() { response in
+            switch response.result
+            {
+            //통신성공
+            case .success(let value):
+                NotificationCenter.default.post(name: NSNotification.Name("logOut"), object: nil)
+                UserDefaults.standard.set(nil, forKey: "signInInfo")
+                Util.createSimpleAlert(self, title: "로그아웃", message: "정상적으로 로그아웃 되었습니다.", navCon: self.navigationController)
+                
+                
+            //통신실패
+            case .failure(let error):
+                print("error: \(String(describing: error.errorDescription))")
+            }
+        }
+    }
 }

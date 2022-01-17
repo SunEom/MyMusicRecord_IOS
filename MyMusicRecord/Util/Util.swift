@@ -22,9 +22,11 @@ class Util {
         return dateFormatter.string(from: date)
     }
     
-    static func createSimpleAlert(_ viewController: UIViewController, title: String, message: String, completion: (()->Void)? = nil) {
+    static func createSimpleAlert(_ viewController: UIViewController, title: String, message: String, completion: (()->Void)? = nil, navCon: UINavigationController? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: navCon != nil ? {(action) in
+            navCon?.popViewController(animated: true)} : nil))
         viewController.present(alert, animated: true, completion: completion)
     }
 }
