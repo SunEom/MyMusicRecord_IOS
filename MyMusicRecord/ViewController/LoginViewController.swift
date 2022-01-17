@@ -13,14 +13,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBAction func idCheckButton(_ sender: Any) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cofigureViewController()
     }
-    
+
     private func cofigureViewController() {
         if let _ = self.navigationController?.navigationBar.items?[0].title {
             self.navigationController?.navigationBar.items?[0].title = "Home"
@@ -43,7 +41,7 @@ class LoginViewController: UIViewController {
             Util.createSimpleAlert(self, title: "로그인 오류", message: "비밀번호를 입력해주세요.", completion: nil)
             return
         }
-                
+    
         let PARAM:Parameters = [
             "id": id,
             "password": password,
@@ -51,13 +49,30 @@ class LoginViewController: UIViewController {
     
         AF.request("\(Env.getServerURL())/auth/login", method: .post, parameters: PARAM)
             .validate(statusCode: 200..<300)
-            .responseString() { response in
+            .responseJSON() { response in
             switch response.result
             {
             //통신성공
             case .success(let value):
-                print(value)
-                self.navigationController?.popViewController(animated: true)
+                guard let data = value as? [String: Any] else { return }
+                guard let userData = data["payload"] as? [String: Any] else { return }
+    
+                guard let id = userData["id"] as? Int else { return }
+                guard let userId = userData["user_id"] as? String else { return }
+                guard let genres = userData["genres"] as? NSArray else { return }
+                guard let nickname = userData["nickname"] as? String else { return }
+                guard let aboutMe = userData["aboutMe"] as? String? else { return }
+                guard let password = userData["password"] as? String else { return }
+                
+                NotificationCenter.default.post(
+                    name: NSNotification.Name("signIn"),
+                    object: User(id: id, userId: userId, genres: genres, nickname: nickname, aboutMe: aboutMe, password: password),
+                    userInfo: nil)
+                
+                UserDefaults.standard.set(PARAM, forKey: "signInInfo")
+                Util.createSimpleAlert(self, title: "로그인 성공", message: "\(nickname)님 반갑습니다!", navCon: self.navigationController)
+                
+                
                 
             //통신실패
             case .failure(let error):

@@ -17,15 +17,35 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            await self.requestHttp()
-        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(signInNotification(_:)), name: NSNotification.Name("signIn"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(logOutNotification(_:)), name: NSNotification.Name("logOut"), object: nil)
+        
+        self.loadUserData()
+        self.requestHttp()
+    
         configureCollectionView()
         addSampleContents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()
+    }
+    
+    private func loadUserData(){
+        let userDefaults = UserDefaults.standard
+        guard let signInInfo = userDefaults.object(forKey: "signInInfo") as? [String: String] else { return }
+        guard let id = signInInfo["id"] else { return }
+        guard let password = signInInfo["password"] else { return }
+        
+        let PARAM: Parameters = [
+            "id": id,
+            "password": password
+        ]
+        
+        self.requestPostSigniIn(PARAM: PARAM)
+        
     }
     
     private func addSampleContents() {
@@ -35,6 +55,45 @@ class ViewController: UIViewController {
         recentPostings.append(Posting(title: "TWINTAIL20", artist: "D-Hack", genre: "HIP-HOP", nickname: "Suneom", postBody: "My favorite Song!", createdDate: Date()))
         recentPostings.append(Posting(title: "Have to", artist: "YounHa", genre: "K-POP", nickname: "Suneom", postBody: "Cool..", createdDate: Date()))
         collectionView.reloadData()
+    }
+    
+    @objc func logOutNotification(_ notification: Notification){
+        self.user = nil
+    }
+    
+    @objc func signInNotification(_ notification: Notification){
+        guard let user = notification.object as? User else { return }
+        self.user = user
+    }
+    
+    private func requestPostSigniIn(PARAM: Parameters) {
+        AF.request("\(Env.getServerURL())/auth/login", method: .post, parameters: PARAM)
+            .validate(statusCode: 200..<300)
+            .responseJSON() { response in
+            switch response.result
+            {
+            //통신성공
+            case .success(let value):
+                guard let data = value as? [String: Any] else { return }
+                guard let userData = data["payload"] as? [String: Any] else { return }
+    
+                guard let id = userData["id"] as? Int else { return }
+                guard let userId = userData["user_id"] as? String else { return }
+                guard let genres = userData["genres"] as? NSArray else { return }
+                guard let nickname = userData["nickname"] as? String else { return }
+                guard let aboutMe = userData["aboutMe"] as? String? else { return }
+                guard let password = userData["password"] as? String else { return }
+                
+                NotificationCenter.default.post(
+                    name: NSNotification.Name("signIn"),
+                    object: User(id: id, userId: userId, genres: genres, nickname: nickname, aboutMe: aboutMe, password: password),
+                    userInfo: nil)
+            
+            //통신실패
+            case .failure(let error):
+                print("error: \(String(describing: error.errorDescription))")
+            }
+        }
     }
     
     private func configureCollectionView() {
@@ -53,8 +112,8 @@ class ViewController: UIViewController {
     }
 
     
-    private func requestHttp() async {
-        await AF.request("\(Env.getServerURL())/post").responseJSON() { response in
+    private func requestHttp() {
+        AF.request("\(Env.getServerURL())/post").responseJSON() { response in
           switch response.result {
           case .success:
             if let data = try! response.result.get() as? [String: Any] {
