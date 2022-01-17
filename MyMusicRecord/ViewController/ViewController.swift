@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var recentPostings = [Posting]()
-    var isSignedIn: Bool = false
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,13 +85,22 @@ class ViewController: UIViewController {
     private func requestGetLogin() async {
         AF.request("\(Env.getServerURL())/auth/login", method: .get)
             .validate(statusCode: 200..<300)
-            .responseString() { response in
+            .responseJSON() { response in
             switch response.result
             {
             //통신성공
             case .success(let value):
-                print(value)
-                self.isSignedIn = true
+                guard let data = value as? [String: Any] else { return }
+                guard let userData = data["payload"] as? [String: Any] else { return }
+    
+                guard let id = userData["id"] as? Int else { return }
+                guard let userId = userData["user_id"] as? String else { return }
+                guard let genres = userData["genres"] as? NSArray else { return }
+                guard let nickname = userData["nickname"] as? String else { return }
+                guard let aboutMe = userData["aboutMe"] as? String? else { return }
+                guard let password = userData["password"] as? String else { return }
+                
+                self.user = User(id: id, userId: userId, genres: genres, nickname: nickname, aboutMe: aboutMe, password: password)
                 
             //통신실패
             case .failure(let error):
@@ -101,9 +110,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tapUserButton(_ sender: Any) {
+        Task{
+            await requestGetLogin()
+        }
         
-        if self.isSignedIn {
-            Util.createSimpleAlert(self, title: "로그인 성공", message: "로그인 된 상태입니다.", completion: nil)
+        if let user = self.user {
+            guard let viewContainer = self.storyboard?.instantiateViewController(withIdentifier: "MyPageViewController") as? MyPageViewController else { return }
+            viewContainer.user = user
+            self.navigationController?.pushViewController(viewContainer, animated: true)
         } else {
             guard let viewContainer = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") else { return }
             self.navigationController?.pushViewController(viewContainer, animated: true)
