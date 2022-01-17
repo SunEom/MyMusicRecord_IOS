@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var recentPostings = [Posting]()
+    var isSignedIn: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,10 +82,35 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func tapUserButton(_ sender: Any) {
-        guard let viewContainer = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") else { return }
-        self.navigationController?.pushViewController(viewContainer, animated: true)
+    private func requestGetLogin() async {
+        AF.request("\(Env.getServerURL())/auth/login", method: .get)
+            .validate(statusCode: 200..<300)
+            .responseString() { response in
+            switch response.result
+            {
+            //통신성공
+            case .success(let value):
+                print(value)
+                self.isSignedIn = true
+                
+            //통신실패
+            case .failure(let error):
+                print("error: \(String(describing: error.errorDescription))")
+            }
+        }
     }
+    
+    @IBAction func tapUserButton(_ sender: Any) {
+        
+        if self.isSignedIn {
+            Util.createSimpleAlert(self, title: "로그인 성공", message: "로그인 된 상태입니다.", completion: nil)
+        } else {
+            guard let viewContainer = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") else { return }
+            self.navigationController?.pushViewController(viewContainer, animated: true)
+        }
+    
+    }
+    
     
 }
 

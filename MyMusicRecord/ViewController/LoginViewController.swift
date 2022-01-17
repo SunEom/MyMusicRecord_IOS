@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import Alamofire
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
@@ -18,10 +19,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cofigureViewController()
-        
     }
-    
-    
     
     private func cofigureViewController() {
         if let _ = self.navigationController?.navigationBar.items?[0].title {
@@ -33,6 +31,40 @@ class LoginViewController: UIViewController {
     }
     
     private func sendLoginRequest(){
+        guard let id = idTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        if id.count == 0 {
+            Util.createSimpleAlert(self, title: "로그인 오류", message: "아이디를 입력해주세요.", completion: nil)
+            return
+        }
+        
+        if password.count == 0 {
+            Util.createSimpleAlert(self, title: "로그인 오류", message: "비밀번호를 입력해주세요.", completion: nil)
+            return
+        }
+                
+        let PARAM:Parameters = [
+            "id": id,
+            "password": password,
+        ]
+    
+        AF.request("\(Env.getServerURL())/auth/login", method: .post, parameters: PARAM)
+            .validate(statusCode: 200..<300)
+            .responseString() { response in
+            switch response.result
+            {
+            //통신성공
+            case .success(let value):
+                print(value)
+                self.navigationController?.popViewController(animated: true)
+                
+            //통신실패
+            case .failure(let error):
+                print("error: \(String(describing: error.errorDescription))")
+            }
+        }
+        
         
     }
 
@@ -42,7 +74,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func tapLoginButton(_ sender: Any) {
         sendLoginRequest()
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
     @IBAction func tapJoinButton(_ sender: Any) {
