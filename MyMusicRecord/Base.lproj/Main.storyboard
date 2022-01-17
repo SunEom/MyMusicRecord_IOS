@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rht-RN-148">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QUn-4P-Qgx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -1068,6 +1068,152 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="966.66666666666674" y="114.50892857142857"/>
+        </scene>
+        <!--My Page View Controller-->
+        <scene sceneID="YOa-2j-vyj">
+            <objects>
+                <viewController restorationIdentifier="MyPageViewController" storyboardIdentifier="MyPageViewController" id="QUn-4P-Qgx" customClass="MyPageViewController" customModule="MyMusicRecord" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mme-Jm-FZP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-jc-CVE">
+                                <rect key="frame" x="24" y="214" width="366" height="41.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYq-6B-HEJ">
+                                        <rect key="frame" x="144.5" y="0.0" width="77" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="SkN-4X-0BK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpV-Ht-geP">
+                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="Vbf-8b-kmF"/>
+                                            <constraint firstAttribute="height" constant="1" id="yZL-Ye-xzg"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qkrco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4V-Ko-wwJ">
+                                        <rect key="frame" x="165" y="25.5" width="36" height="16"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="v1Z-Xp-7ZU">
+                                <rect key="frame" x="24" y="300.5" width="366" height="73"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVD-g1-W2c">
+                                        <rect key="frame" x="145.5" y="0.0" width="75" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="1Gi-rr-Bgn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3Z-vn-PLw">
+                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="2db-b6-pva"/>
+                                            <constraint firstAttribute="width" constant="110" id="gsc-Tr-71s"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrm-T6-Zel">
+                                        <rect key="frame" x="0.0" y="25.5" width="366" height="47.5"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qrm-T6-Zel" secondAttribute="trailing" id="0Jm-yR-lo9"/>
+                                    <constraint firstItem="qrm-T6-Zel" firstAttribute="leading" secondItem="v1Z-Xp-7ZU" secondAttribute="leading" id="3C0-mN-1Lw"/>
+                                    <constraint firstItem="qrm-T6-Zel" firstAttribute="top" secondItem="S3Z-vn-PLw" secondAttribute="bottom" constant="2" id="n21-EW-RZ4"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIE-fy-V5h">
+                                <rect key="frame" x="24" y="124" width="366" height="30"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="57a-kx-hl2">
+                                <rect key="frame" x="24" y="423.5" width="366" height="41.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefer Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFd-Pk-stT">
+                                        <rect key="frame" x="128" y="0.0" width="110" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1S-pR-apz">
+                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="HHf-9G-0Ye"/>
+                                            <constraint firstAttribute="height" constant="1" id="dvf-s4-eSn"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hip-Hop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNj-r4-VPz">
+                                        <rect key="frame" x="158.5" y="25.5" width="49.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="O1S-pR-apz" firstAttribute="width" secondItem="KFd-Pk-stT" secondAttribute="width" id="NvO-aj-qlh"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vGZ-rP-R16"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vGZ-rP-R16" firstAttribute="trailing" secondItem="efQ-jc-CVE" secondAttribute="trailing" constant="24" id="6o7-Lr-OvG"/>
+                            <constraint firstItem="kIE-fy-V5h" firstAttribute="top" secondItem="vGZ-rP-R16" secondAttribute="top" constant="80" id="AbW-4O-Pjz"/>
+                            <constraint firstItem="vGZ-rP-R16" firstAttribute="trailing" secondItem="v1Z-Xp-7ZU" secondAttribute="trailing" constant="24" id="B5Q-mJ-mGu"/>
+                            <constraint firstItem="57a-kx-hl2" firstAttribute="top" secondItem="v1Z-Xp-7ZU" secondAttribute="bottom" constant="50" id="GBT-Tc-58d"/>
+                            <constraint firstItem="efQ-jc-CVE" firstAttribute="leading" secondItem="vGZ-rP-R16" secondAttribute="leading" constant="24" id="GEL-jM-R04"/>
+                            <constraint firstItem="kIE-fy-V5h" firstAttribute="leading" secondItem="vGZ-rP-R16" secondAttribute="leading" constant="24" id="SEs-Aj-3UA"/>
+                            <constraint firstItem="v1Z-Xp-7ZU" firstAttribute="leading" secondItem="vGZ-rP-R16" secondAttribute="leading" constant="24" id="Uvl-GZ-c2V"/>
+                            <constraint firstItem="v1Z-Xp-7ZU" firstAttribute="top" secondItem="efQ-jc-CVE" secondAttribute="bottom" constant="45" id="VBS-YH-Ztr"/>
+                            <constraint firstItem="efQ-jc-CVE" firstAttribute="top" secondItem="kIE-fy-V5h" secondAttribute="bottom" constant="60" id="YMw-dN-ARf"/>
+                            <constraint firstItem="vGZ-rP-R16" firstAttribute="trailing" secondItem="kIE-fy-V5h" secondAttribute="trailing" constant="24" id="Yqp-fm-xQT"/>
+                            <constraint firstItem="vGZ-rP-R16" firstAttribute="trailing" secondItem="57a-kx-hl2" secondAttribute="trailing" constant="24" id="jZD-ax-int"/>
+                            <constraint firstItem="57a-kx-hl2" firstAttribute="leading" secondItem="vGZ-rP-R16" secondAttribute="leading" constant="24" id="lhy-no-OLm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutMeDivider" destination="S3Z-vn-PLw" id="XrT-Eq-cCK"/>
+                        <outlet property="aboutMeTextView" destination="qrm-T6-Zel" id="2aM-Qr-R0l"/>
+                        <outlet property="aboutmeTitleLabel" destination="cVD-g1-W2c" id="JF4-eC-qWQ"/>
+                        <outlet property="nicknameDivider" destination="NpV-Ht-geP" id="dP1-uy-GNz"/>
+                        <outlet property="nicknameLabel" destination="N4V-Ko-wwJ" id="eYd-WW-XUJ"/>
+                        <outlet property="nicknameTitleLabel" destination="fYq-6B-HEJ" id="6aw-dG-1e3"/>
+                        <outlet property="preferGenreDivider" destination="O1S-pR-apz" id="fU8-bQ-2eR"/>
+                        <outlet property="preferGenreLabel" destination="QNj-r4-VPz" id="ErX-Vr-6vg"/>
+                        <outlet property="preferGenreTitleLabel" destination="KFd-Pk-stT" id="vhP-IX-O98"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PsR-pb-X3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668.11594202898561" y="-554.46428571428567"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
