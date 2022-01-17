@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
                 guard let userId = userData["user_id"] as? String else { return }
                 guard let genres = userData["genres"] as? NSArray else { return }
                 guard let nickname = userData["nickname"] as? String else { return }
-                guard let aboutMe = userData["aboutMe"] as? String? else { return }
+                guard let aboutMe = userData["about_me"] as? String? else { return }
                 guard let password = userData["password"] as? String else { return }
                 
                 NotificationCenter.default.post(

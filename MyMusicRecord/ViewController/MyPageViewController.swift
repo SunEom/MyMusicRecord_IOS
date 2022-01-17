@@ -24,23 +24,32 @@ class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureDiviers()
         configureViewController()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(changeProfileNotification(_:)),
+            name: Notification.Name("changeProfile"),
+            object: nil)
     }
     
     private func configureViewController() {
         guard let user = self.user else { return }
         
-        self.setNickname(user: user)
-        self.setAboutMe(user: user)
-        self.setPreferGenres(user: user)
+        self.setNickname()
+        self.setAboutMe()
+        self.setPreferGenres()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(tapEditButton))
     }
     
-    private func setNickname(user: User) {
-        self.nicknameLabel.text = user.nickname
+    private func setNickname() {
+        self.nicknameLabel.text = self.user?.nickname
     }
     
-    private func setAboutMe(user: User) {
+    private func setAboutMe() {
         if let aboutMe = self.user?.aboutMe {
             self.aboutMeTextView.text = aboutMe
         } else {
@@ -53,7 +62,8 @@ class MyPageViewController: UIViewController {
         self.aboutMeTextView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
     }
     
-    private func setPreferGenres(user: User) {
+    private func setPreferGenres() {
+        guard let user = self.user else { return }
         if user.genres.count == 0 {
             self.preferGenreLabel.text = "None"
             return
@@ -63,7 +73,7 @@ class MyPageViewController: UIViewController {
         
         for gen in user.genres {
             guard let gen = gen as? String else { return }
-            tempString += "\(gen), "
+            tempString += "\(gen),  "
         }
         
         guard let subIndex = tempString.lastIndex(of: ",") else { return }
@@ -78,6 +88,25 @@ class MyPageViewController: UIViewController {
         nicknameDivider.layer.borderWidth = 1.0
         aboutMeDivider.layer.borderWidth = 1.0
         preferGenreDivider.layer.borderWidth = 1.0
+    }
+    
+    @objc func tapEditButton() {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileEditViewController") as? ProfileEditViewController else { return }
+        
+        guard let user = user else { return }
+        viewController.user = user
+    
+        self.navigationController?.pushViewController(viewController, animated: true)
+                
+    }
+    
+    @objc func changeProfileNotification(_ notification: Notification){
+        guard let user = notification.object as? User else { return }
+        self.user = user
+
+        self.setNickname()
+        self.setAboutMe()
+        self.setPreferGenres()
     }
     
     @IBAction func tapLogOutButton(_ sender: Any) {
