@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(logOutNotification(_:)), name: NSNotification.Name("logOut"), object: nil)
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(changeProfileNotification(_:)),
+            name: Notification.Name("changeProfile"),
+            object: nil)
+
+        
         self.loadUserData()
         self.requestHttp()
     
@@ -66,6 +73,11 @@ class ViewController: UIViewController {
         self.user = user
     }
     
+    @objc func changeProfileNotification(_ notification: Notification){
+        guard let user = notification.object as? User else { return }
+        self.user = user
+    }
+    
     private func requestPostSigniIn(PARAM: Parameters) {
         AF.request("\(Env.getServerURL())/auth/login", method: .post, parameters: PARAM)
             .validate(statusCode: 200..<300)
@@ -81,7 +93,7 @@ class ViewController: UIViewController {
                 guard let userId = userData["user_id"] as? String else { return }
                 guard let genres = userData["genres"] as? NSArray else { return }
                 guard let nickname = userData["nickname"] as? String else { return }
-                guard let aboutMe = userData["aboutMe"] as? String? else { return }
+                guard let aboutMe = userData["about_me"] as? String? else { return }
                 guard let password = userData["password"] as? String else { return }
                 
                 NotificationCenter.default.post(
@@ -156,7 +168,7 @@ class ViewController: UIViewController {
                 guard let userId = userData["user_id"] as? String else { return }
                 guard let genres = userData["genres"] as? NSArray else { return }
                 guard let nickname = userData["nickname"] as? String else { return }
-                guard let aboutMe = userData["aboutMe"] as? String? else { return }
+                guard let aboutMe = userData["about_me"] as? String? else { return }
                 guard let password = userData["password"] as? String else { return }
                 
                 self.user = User(id: id, userId: userId, genres: genres, nickname: nickname, aboutMe: aboutMe, password: password)
