@@ -27,6 +27,7 @@
 		BFB7BF9B279540EB003870C0 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7BF9A279540EB003870C0 /* MyPageViewController.swift */; };
 		BFB7BF9D27954ACE003870C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7BF9C27954ACE003870C0 /* User.swift */; };
 		BFB7BF9F27958EA3003870C0 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7BF9E27958EA3003870C0 /* ProfileEditViewController.swift */; };
+		BFD421EE279685FB00F20688 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD421ED279685FB00F20688 /* SearchViewController.swift */; };
 		BFD778562793BADC008A95A1 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD778552793BADC008A95A1 /* JoinViewController.swift */; };
 		BFD9EFA027913301009736F6 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9D27913301009736F6 /* Lato-Regular.ttf */; };
 		BFD9EFA127913301009736F6 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFD9EF9E27913301009736F6 /* Lato-Bold.ttf */; };
@@ -57,6 +58,7 @@
 		BFB7BF9A279540EB003870C0 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		BFB7BF9C27954ACE003870C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BFB7BF9E27958EA3003870C0 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		BFD421ED279685FB00F20688 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BFD778552793BADC008A95A1 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		BFD9EF9D27913301009736F6 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		BFD9EF9E27913301009736F6 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				BFD778552793BADC008A95A1 /* JoinViewController.swift */,
 				BFB7BF9A279540EB003870C0 /* MyPageViewController.swift */,
 				BFB7BF9E27958EA3003870C0 /* ProfileEditViewController.swift */,
+				BFD421ED279685FB00F20688 /* SearchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				BF4C4A9F278EF8BD001387EA /* Posting.swift in Sources */,
 				BF1C0E20278C8CB600A45220 /* AppDelegate.swift in Sources */,
 				BF4C4A9A278EEE7A001387EA /* PostingCell.swift in Sources */,
+				BFD421EE279685FB00F20688 /* SearchViewController.swift in Sources */,
 				BF4C4AA4278F113E001387EA /* Env.swift in Sources */,
 				BFB7BF9B279540EB003870C0 /* MyPageViewController.swift in Sources */,
 				BFDB201C27915C4D003BC65D /* Comment.swift in Sources */,
