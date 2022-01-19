@@ -534,6 +534,23 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
         </scene>
+        <!--Create-->
+        <scene sceneID="kvn-Gz-K4D">
+            <objects>
+                <navigationController id="ams-BT-Lm3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Create" image="plus.app" catalog="system" selectedImage="plus.app.fill" id="aXz-qN-QnT"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="muB-zK-d8c">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kx3-Or-RFz" kind="relationship" relationship="rootViewController" id="Y2d-Hf-Jth"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJJ-k9-iPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1617" y="800"/>
+        </scene>
         <!--Sidebar Navigation Controller-->
         <scene sceneID="K7T-KU-gfJ">
             <objects>
@@ -1540,29 +1557,30 @@
                     </tabBar>
                     <connections>
                         <segue destination="rht-RN-148" kind="relationship" relationship="viewControllers" id="yfg-vv-K51"/>
-                        <segue destination="kx3-Or-RFz" kind="relationship" relationship="viewControllers" id="Zfx-ad-Xl4"/>
-                        <segue destination="aSB-gV-sU3" kind="relationship" relationship="viewControllers" id="bH4-jf-YvH"/>
+                        <segue destination="ams-BT-Lm3" kind="relationship" relationship="viewControllers" id="8VK-Qw-vDY"/>
+                        <segue destination="aSB-gV-sU3" kind="relationship" relationship="viewControllers" id="jyh-jg-Gdd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sox-wf-LPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1617" y="115"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Posting-->
         <scene sceneID="IxX-gO-6oE">
             <objects>
                 <viewController id="kx3-Or-RFz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dWr-BW-hoR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="quv-Ae-bnm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="plus.app" catalog="system" selectedImage="plus.app.fill" id="Fbu-bf-Eed"/>
+                    <navigationItem key="navigationItem" title="Create Posting" id="lbW-6L-1gL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0L-ef-n5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1617" y="800"/>
+            <point key="canvasLocation" x="-1617" y="1535"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A6c-FQ-fnb">

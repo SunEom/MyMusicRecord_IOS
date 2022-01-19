@@ -121,7 +121,7 @@ class JoinViewController: UIViewController {
             {
             //통신성공
             case .success(let value):
-                Util.createSimpleAlert(self,title: "회원가입 성공", message: "정상적으로 회원가입 되었습니다!")
+                Util.createSimpleAlert(self,title: "회원가입 성공", message: "정상적으로 회원가입 되었습니다!", navCon: self.navigationController)
                 
             //통신실패
             case .failure(let error):

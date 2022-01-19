@@ -46,7 +46,6 @@ class LoginViewController: UIViewController {
             "id": id,
             "password": password,
         ]
-    
         AF.request("\(Env.getServerURL())/auth/login", method: .post, parameters: PARAM)
             .validate(statusCode: 200..<300)
             .responseJSON() { response in
@@ -56,7 +55,6 @@ class LoginViewController: UIViewController {
             case .success(let value):
                 guard let data = value as? [String: Any] else { return }
                 guard let userData = data["payload"] as? [String: Any] else { return }
-    
                 guard let id = userData["id"] as? Int else { return }
                 guard let userId = userData["user_id"] as? String else { return }
                 guard let genres = userData["genres"] as? NSArray else { return }
