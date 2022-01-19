@@ -1598,6 +1598,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Lp3-D2-fxg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="gQO-3S-MqK" kind="relationship" relationship="rootViewController" id="Xro-Rd-u7d"/>
@@ -1617,7 +1621,8 @@
                         <subviews>
                             <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-uC-ubf">
                                 <rect key="frame" x="24" y="15" width="366" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-Jh-CfB">
                                 <rect key="frame" x="0.0" y="66" width="414" height="659"/>
@@ -1703,6 +1708,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7BL-8x-qAF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="5Hd-uC-ubf" firstAttribute="leading" secondItem="7BL-8x-qAF" secondAttribute="leading" constant="24" id="4yf-dn-6Wz"/>
                             <constraint firstItem="5Hd-uC-ubf" firstAttribute="top" secondItem="7BL-8x-qAF" secondAttribute="top" constant="15" id="VaE-PZ-w0S"/>
@@ -1712,6 +1718,9 @@
                             <constraint firstItem="7BL-8x-qAF" firstAttribute="bottom" secondItem="oi9-Jh-CfB" secondAttribute="bottom" id="vkL-Ux-dXB"/>
                             <constraint firstItem="7BL-8x-qAF" firstAttribute="trailing" secondItem="oi9-Jh-CfB" secondAttribute="trailing" id="wTq-1s-Bab"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vmp-Yw-jlH" appends="YES" id="37I-73-MbO"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="t99-Vj-GMB"/>
                     <navigationItem key="navigationItem" title="Search" id="KjH-YT-vbi"/>
@@ -1721,6 +1730,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buy-bc-f4K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Vmp-Yw-jlH">
+                    <connections>
+                        <action selector="tapBackGround:" destination="gQO-3S-MqK" id="j4q-mt-DmY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2487" y="1536"/>
         </scene>
