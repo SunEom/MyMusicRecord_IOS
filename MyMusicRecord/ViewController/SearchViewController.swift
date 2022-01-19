@@ -36,6 +36,9 @@ class SearchViewController: UIViewController {
         collectionView.delegate = self
     }
 
+    @IBAction func tapBackGround(_ sender: Any) {
+        view.endEditing(true)
+    }
 }
 
 extension SearchViewController: UICollectionViewDataSource {
@@ -66,6 +69,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
         guard let keyword = searchBar.text else { return }
         
         if keyword == "" {
@@ -105,5 +109,14 @@ extension SearchViewController: UISearchBarDelegate {
                 }
             }
         
+    }
+    
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
+        viewController.post = resultPostings[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

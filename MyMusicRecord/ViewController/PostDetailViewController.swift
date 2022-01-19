@@ -30,9 +30,14 @@ class PostDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureNavigationBar()
         configureCommentCollectionView()
         addCommentSamples()
         setKeyboardObserver()
+    }
+    
+    private func configureNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     private func configureViewController() {
