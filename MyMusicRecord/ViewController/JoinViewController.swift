@@ -15,6 +15,7 @@ class JoinViewController: UIViewController {
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var idCheckbutton: UIButton!
     @IBOutlet weak var nicknameCheckButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var isIDAvailable: Bool = false
     var isNicknameAvailable: Bool = false
@@ -26,8 +27,19 @@ class JoinViewController: UIViewController {
         super.viewDidLoad()
         configureViewController()
         setKeyboardObserver()
+        turnOffActivityIndicator()
     }
 
+    private func turnOffActivityIndicator() {
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+    }
+    
+    private func turnOnActivityIndicator() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+    }
+    
     private func requestIDCheck() {
         if let length = idTextField.text?.count, length < 5 {
             Util.createSimpleAlert(self,title: "ID 오류", message: "ID는 5글자 이상 입력해야합니다.")
@@ -104,9 +116,16 @@ class JoinViewController: UIViewController {
     }
     
     private func requestJoin() async {
-        guard let id = idTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        guard let nickname = nicknameTextField.text else { return }
+        self.turnOnActivityIndicator()
+        guard let id = idTextField.text else {
+            turnOffActivityIndicator()
+            return }
+        guard let password = passwordTextField.text else {
+            turnOffActivityIndicator()
+            return }
+        guard let nickname = nicknameTextField.text else {
+            turnOffActivityIndicator()
+            return }
         
         let PARAM:Parameters = [
             "id": id,
@@ -116,18 +135,34 @@ class JoinViewController: UIViewController {
     
         AF.request("\(Env.getServerURL())/register", method: .post, parameters: PARAM)
             .validate(statusCode: 200..<300)
-            .responseString() { response in
+            .responseJSON() { response in
             switch response.result
             {
             //통신성공
             case .success(let value):
-                Util.createSimpleAlert(self,title: "회원가입 성공", message: "정상적으로 회원가입 되었습니다!", navCon: self.navigationController)
+                guard let data = value as? [String: Any] else { return }
+                guard let userData = data["payload"] as? [String: Any] else { return }
+                guard let id = userData["id"] as? Int else { return }
+                guard let userId = userData["user_id"] as? String else { return }
+                guard let genres = userData["genres"] as? NSArray else { return }
+                guard let nickname = userData["nickname"] as? String else { return }
+                guard let aboutMe = userData["about_me"] as? String? else { return }
+                guard let password = userData["password"] as? String else { return }
+                
+                NotificationCenter.default.post(
+                    name: NSNotification.Name("signIn"),
+                    object: User(id: id, userId: userId, genres: genres, nickname: nickname, aboutMe: aboutMe, password: password),
+                    userInfo: nil)
+                
+                UserDefaults.standard.set(PARAM, forKey: "signInInfo")
+                Util.createSimpleAlert(self,title: "회원가입 성공", message: "정상적으로 회원가입 되었습니다!", navCon: self.navigationController, toRoot: true)
                 
             //통신실패
             case .failure(let error):
                 print("error: \(String(describing: error.errorDescription))")
             }
         }
+        self.turnOffActivityIndicator()
     }
     
     private func checkPasswordIsAvailable() -> Bool {

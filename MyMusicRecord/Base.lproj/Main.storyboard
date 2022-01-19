@@ -365,6 +365,9 @@
                                     <constraint firstAttribute="bottom" secondItem="2gY-3Z-4aZ" secondAttribute="bottom" id="xMK-dp-YuP"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="U8h-QM-AtB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dGd-QH-pYq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -372,7 +375,11 @@
                         <constraints>
                             <constraint firstItem="efZ-O4-S1f" firstAttribute="top" secondItem="dGd-QH-pYq" secondAttribute="top" id="3pB-Xt-68j"/>
                             <constraint firstItem="dGd-QH-pYq" firstAttribute="trailing" secondItem="efZ-O4-S1f" secondAttribute="trailing" id="CCM-RQ-pg3"/>
+                            <constraint firstItem="U8h-QM-AtB" firstAttribute="leading" secondItem="dGd-QH-pYq" secondAttribute="leading" id="Da3-3q-XYa"/>
+                            <constraint firstItem="dGd-QH-pYq" firstAttribute="bottom" secondItem="U8h-QM-AtB" secondAttribute="bottom" id="Rz5-YM-LIi"/>
                             <constraint firstItem="dGd-QH-pYq" firstAttribute="bottom" secondItem="efZ-O4-S1f" secondAttribute="bottom" id="X2w-DS-Akf"/>
+                            <constraint firstItem="U8h-QM-AtB" firstAttribute="top" secondItem="dGd-QH-pYq" secondAttribute="top" id="Ypg-pW-UjJ"/>
+                            <constraint firstItem="dGd-QH-pYq" firstAttribute="trailing" secondItem="U8h-QM-AtB" secondAttribute="trailing" id="gVl-s6-0yD"/>
                             <constraint firstItem="efZ-O4-S1f" firstAttribute="leading" secondItem="dGd-QH-pYq" secondAttribute="leading" id="ma8-Dz-jn8"/>
                         </constraints>
                         <connections>
@@ -381,6 +388,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="uRS-7v-jFC"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="U8h-QM-AtB" id="KHZ-YW-eih"/>
                         <outlet property="idCheckbutton" destination="hlq-ag-eIE" id="tfd-HH-q9L"/>
                         <outlet property="idTextField" destination="bhw-Ua-CYj" id="Wfv-eG-Pca"/>
                         <outlet property="nicknameCheckButton" destination="8fU-xR-IWr" id="hbx-X8-QJD"/>
