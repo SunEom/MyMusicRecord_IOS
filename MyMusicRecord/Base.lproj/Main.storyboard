@@ -1573,18 +1573,320 @@
             </objects>
             <point key="canvasLocation" x="-1617" y="115"/>
         </scene>
-        <!--Create Posting-->
+        <!--New Posting-->
         <scene sceneID="IxX-gO-6oE">
             <objects>
-                <viewController id="kx3-Or-RFz" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NewPostingViewController" storyboardIdentifier="NewPostingViewController" id="kx3-Or-RFz" customClass="NewPostingViewController" customModule="MyMusicRecord" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dWr-BW-hoR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="4xp-Bn-5in">
+                                <rect key="frame" x="24" y="50" width="366" height="55.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArY-gX-VXW">
+                                        <rect key="frame" x="165.5" y="0.0" width="35" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQx-R8-JvX">
+                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="8hY-Ml-lmT"/>
+                                            <constraint firstAttribute="height" constant="1" id="YHL-rD-1H9"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hNF-Or-Mt3">
+                                        <rect key="frame" x="0.0" y="25.5" width="366" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="zGJ-6L-Pfd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hNF-Or-Mt3" firstAttribute="leading" secondItem="4xp-Bn-5in" secondAttribute="leading" id="9T6-pr-Okh"/>
+                                    <constraint firstAttribute="trailing" secondItem="hNF-Or-Mt3" secondAttribute="trailing" id="U9T-Xo-NbN"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zLk-ja-a4c">
+                                <rect key="frame" x="24" y="209" width="366" height="175.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxp-56-i49">
+                                        <rect key="frame" x="155" y="0.0" width="56.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kZ-8p-haz">
+                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="Afb-KR-WKw"/>
+                                            <constraint firstAttribute="height" constant="1" id="utT-Dl-itw"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9f-EA-qRc">
+                                        <rect key="frame" x="0.0" y="25.5" width="366" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="XvS-Ab-vL3"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="b9f-EA-qRc" firstAttribute="leading" secondItem="zLk-ja-a4c" secondAttribute="leading" id="AMW-o8-jCU"/>
+                                    <constraint firstAttribute="trailing" secondItem="b9f-EA-qRc" secondAttribute="trailing" id="GT1-GA-Q8M"/>
+                                    <constraint firstItem="b9f-EA-qRc" firstAttribute="top" secondItem="7kZ-8p-haz" secondAttribute="bottom" constant="2" id="dza-57-eyK"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-Wv-CcA">
+                                <rect key="frame" x="24" y="408.5" width="366" height="102.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDw-wc-D10">
+                                        <rect key="frame" x="128" y="0.0" width="110" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REF-y6-79U">
+                                        <rect key="frame" x="128" y="25.5" width="110" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="KIq-SA-QXY"/>
+                                            <constraint firstAttribute="width" constant="110" id="psg-mo-LPQ"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y9D-7r-p1T">
+                                        <rect key="frame" x="39" y="31.5" width="288" height="71"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YZH-fH-rif">
+                                                <rect key="frame" x="15" y="0.0" width="258" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNX-wY-Ssf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="Luk-gZ-uQi"/>
+                                                            <constraint firstAttribute="width" constant="60" id="idx-0P-qpG"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Pop">
+                                                            <color key="titleColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapGenreButton:" destination="kx3-Or-RFz" eventType="touchUpInside" id="L1O-x7-swJ"/>
+                                                            <action selector="tapGenreButtons:" destination="A6C-VG-UYu" eventType="touchUpInside" id="ehq-7r-wr2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h22-SW-TAi">
+                                                        <rect key="frame" x="66" y="0.0" width="60" height="30"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="LKm-VK-Fj3"/>
+                                                            <constraint firstAttribute="width" constant="60" id="TOS-PH-Wlm"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="K-Pop">
+                                                            <color key="titleColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapGenreButton:" destination="kx3-Or-RFz" eventType="touchUpInside" id="KPj-OH-0ai"/>
+                                                            <action selector="tapGenreButtons:" destination="A6C-VG-UYu" eventType="touchUpInside" id="CA9-Gf-I9r"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-dh-cw0">
+                                                        <rect key="frame" x="132" y="0.0" width="60" height="30"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="7s1-He-5zk"/>
+                                                            <constraint firstAttribute="width" constant="60" id="W4o-gb-Aeo"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Rock">
+                                                            <color key="titleColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapGenreButton:" destination="kx3-Or-RFz" eventType="touchUpInside" id="wj4-cO-Qlr"/>
+                                                            <action selector="tapGenreButtons:" destination="A6C-VG-UYu" eventType="touchUpInside" id="gwL-Yv-6L6"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbT-Lm-BUT">
+                                                        <rect key="frame" x="198" y="0.0" width="60" height="30"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="bPS-2i-hlE"/>
+                                                            <constraint firstAttribute="height" constant="30" id="cBj-lv-10H"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Jazz">
+                                                            <color key="titleColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapGenreButton:" destination="kx3-Or-RFz" eventType="touchUpInside" id="cl1-rn-gaU"/>
+                                                            <action selector="tapGenreButtons:" destination="A6C-VG-UYu" eventType="touchUpInside" id="PsC-GX-F6a"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-pF-6B1">
+                                                <rect key="frame" x="0.0" y="40" width="288" height="31"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-fd-h6v">
+                                                        <rect key="frame" x="0.0" y="0.5" width="88" height="30"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="6O6-2Q-B8F"/>
+                                                            <constraint firstAttribute="width" constant="88" id="nhn-RL-7pG"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Hip-Hop">
+                                                            <color key="titleColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapGenreButton:" destination="kx3-Or-RFz" eventType="touchUpInside" id="Xvf-ix-2cY"/>
+                                                            <action selector="tapGenreButtons:" destination="A6C-VG-UYu" eventType="touchUpInside" id="Ozf-5E-ddr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yj-dH-8UG">
+                                                        <rect key="frame" x="94" y="0.5" width="88" height="30"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="4OQ-HV-Zn6"/>
+                                                            <constraint firstAttribute="width" constant="88" id="89q-gE-7Yd"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Disco">
+                                                            <color key="titleColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapGenreButton:" destination="kx3-Or-RFz" eventType="touchUpInside" id="EVV-U4-Wgz"/>
+                                                            <action selector="tapGenreButtons:" destination="A6C-VG-UYu" eventType="touchUpInside" id="14p-MP-OZi"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFl-BS-caS">
+                                                        <rect key="frame" x="188" y="0.5" width="100" height="30"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="aBB-CL-FoY"/>
+                                                            <constraint firstAttribute="width" constant="100" id="pBI-df-0Yt"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Electronic">
+                                                            <color key="titleColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapGenreButton:" destination="kx3-Or-RFz" eventType="touchUpInside" id="fP2-Sd-pcN"/>
+                                                            <action selector="tapGenreButtons:" destination="A6C-VG-UYu" eventType="touchUpInside" id="L7F-b2-n9f"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="9yj-dH-8UG" firstAttribute="top" secondItem="aPu-pF-6B1" secondAttribute="top" constant="0.5" id="lmr-1B-qDs"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="REF-y6-79U" firstAttribute="width" secondItem="kDw-wc-D10" secondAttribute="width" id="Nkh-4C-03o"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-lo-k8u">
+                                <rect key="frame" x="24" y="129.5" width="366" height="55.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQM-5e-uut">
+                                        <rect key="frame" x="161" y="0.0" width="44.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmW-93-AZT">
+                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="EvD-nr-WuQ"/>
+                                            <constraint firstAttribute="width" constant="110" id="RHF-rN-X0y"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0v-nW-7o7">
+                                        <rect key="frame" x="0.0" y="25.5" width="366" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="qze-B9-Uks"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="D0v-nW-7o7" secondAttribute="trailing" id="XOF-72-Qli"/>
+                                    <constraint firstItem="D0v-nW-7o7" firstAttribute="leading" secondItem="fr0-lo-k8u" secondAttribute="leading" id="zTN-u7-bLi"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="quv-Ae-bnm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="quv-Ae-bnm" firstAttribute="trailing" secondItem="zLk-ja-a4c" secondAttribute="trailing" constant="24" id="1eN-Bz-BB0"/>
+                            <constraint firstItem="quv-Ae-bnm" firstAttribute="trailing" secondItem="4xp-Bn-5in" secondAttribute="trailing" constant="24" id="5nH-pw-Kmb"/>
+                            <constraint firstItem="zLk-ja-a4c" firstAttribute="top" secondItem="fr0-lo-k8u" secondAttribute="bottom" constant="24" id="75f-wP-d1R"/>
+                            <constraint firstItem="GKL-Wv-CcA" firstAttribute="leading" secondItem="quv-Ae-bnm" secondAttribute="leading" constant="24" id="BTM-TW-AkS"/>
+                            <constraint firstItem="quv-Ae-bnm" firstAttribute="trailing" secondItem="fr0-lo-k8u" secondAttribute="trailing" constant="24" id="COg-kK-5Er"/>
+                            <constraint firstItem="zLk-ja-a4c" firstAttribute="leading" secondItem="quv-Ae-bnm" secondAttribute="leading" constant="24" id="EOb-mf-9zA"/>
+                            <constraint firstItem="quv-Ae-bnm" firstAttribute="trailing" secondItem="zLk-ja-a4c" secondAttribute="trailing" constant="24" id="G5m-Sh-DoU"/>
+                            <constraint firstItem="fr0-lo-k8u" firstAttribute="top" secondItem="4xp-Bn-5in" secondAttribute="bottom" constant="24" id="IqB-WC-UF9"/>
+                            <constraint firstItem="zLk-ja-a4c" firstAttribute="leading" secondItem="quv-Ae-bnm" secondAttribute="leading" constant="24" id="OrS-er-ZWY"/>
+                            <constraint firstItem="4xp-Bn-5in" firstAttribute="top" secondItem="quv-Ae-bnm" secondAttribute="top" constant="50" id="XOj-P8-rmq"/>
+                            <constraint firstItem="quv-Ae-bnm" firstAttribute="trailing" secondItem="GKL-Wv-CcA" secondAttribute="trailing" constant="24" id="aPS-dD-MP3"/>
+                            <constraint firstItem="fr0-lo-k8u" firstAttribute="leading" secondItem="quv-Ae-bnm" secondAttribute="leading" constant="24" id="f6e-BB-bWS"/>
+                            <constraint firstItem="GKL-Wv-CcA" firstAttribute="top" secondItem="zLk-ja-a4c" secondAttribute="bottom" constant="24" id="nIS-Cc-hL6"/>
+                            <constraint firstItem="4xp-Bn-5in" firstAttribute="leading" secondItem="quv-Ae-bnm" secondAttribute="leading" constant="24" id="zrw-WJ-xFo"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="plus.app" catalog="system" selectedImage="plus.app.fill" id="Fbu-bf-Eed"/>
-                    <navigationItem key="navigationItem" title="Create Posting" id="lbW-6L-1gL"/>
+                    <navigationItem key="navigationItem" title="New Posting" id="lbW-6L-1gL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1AA-hm-2m8">
+                            <connections>
+                                <action selector="tapAddButton:" destination="kx3-Or-RFz" id="wUs-9b-Mbb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="artistTextField" destination="D0v-nW-7o7" id="JxV-Js-Z61"/>
+                        <outlet property="discoGenreButton" destination="9yj-dH-8UG" id="n8j-qe-IvT"/>
+                        <outlet property="electronicGenreButton" destination="lFl-BS-caS" id="nAI-Ho-1EJ"/>
+                        <outlet property="hiphopGenreButton" destination="tdA-fd-h6v" id="Mmv-Wq-yCR"/>
+                        <outlet property="jazzGenreButton" destination="qbT-Lm-BUT" id="mbe-EY-ui5"/>
+                        <outlet property="kpopGenreButton" destination="h22-SW-TAi" id="cZn-vl-MvF"/>
+                        <outlet property="popGenreButton" destination="GNX-wY-Ssf" id="zIU-2A-Z96"/>
+                        <outlet property="postBodyTextView" destination="b9f-EA-qRc" id="bxI-O4-LKr"/>
+                        <outlet property="rockGenreButton" destination="cuk-dh-cw0" id="UqG-WZ-jJK"/>
+                        <outlet property="titleTextField" destination="hNF-Or-Mt3" id="t62-zG-LhN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0L-ef-n5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
