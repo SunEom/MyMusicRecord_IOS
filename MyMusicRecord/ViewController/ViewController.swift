@@ -33,7 +33,6 @@ class ViewController: UIViewController {
         self.requestHttp()
     
         configureCollectionView()
-        addSampleContents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,15 +54,6 @@ class ViewController: UIViewController {
         
     }
     
-    private func addSampleContents() {
-        recentPostings.append(Posting(title: "Winter Flower", artist: "YounHa", genre: "K-POP", nickname: "Suneom", postBody: "Good..", createdDate: Date()))
-        recentPostings.append(Posting(title: "I'MMA DO", artist: "YUMDDA", genre: "HIP-HOP", nickname: "Suneom", postBody: "Good!", createdDate: Date()))
-        recentPostings.append(Posting(title: "Snowman", artist: "Sia", genre: "POP", nickname: "Suneom", postBody: "Good..😃", createdDate: Date()))
-        recentPostings.append(Posting(title: "TWINTAIL20", artist: "D-Hack", genre: "HIP-HOP", nickname: "Suneom", postBody: "My favorite Song!", createdDate: Date()))
-        recentPostings.append(Posting(title: "Have to", artist: "YounHa", genre: "K-POP", nickname: "Suneom", postBody: "Cool..", createdDate: Date()))
-        collectionView.reloadData()
-    }
-    
     @objc func logOutNotification(_ notification: Notification){
         self.user = nil
     }
@@ -76,6 +66,12 @@ class ViewController: UIViewController {
     @objc func changeProfileNotification(_ notification: Notification){
         guard let user = notification.object as? User else { return }
         self.user = user
+    }
+    
+    @objc func pullToRefresh(_ sender: Any) {
+        self.recentPostings.removeAll()
+        self.requestHttp()
+        self.collectionView.refreshControl?.endRefreshing()
     }
     
     private func requestPostSigniIn(PARAM: Parameters) {
@@ -115,6 +111,9 @@ class ViewController: UIViewController {
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.refreshControl = UIRefreshControl()
+        self.collectionView.refreshControl?.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
+        self.collectionView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
     }
     
     private func configureNavigationBar() {
