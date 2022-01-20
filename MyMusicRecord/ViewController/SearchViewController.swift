@@ -34,6 +34,14 @@ class SearchViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.refreshControl = UIRefreshControl()
+        self.collectionView.refreshControl?.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
+        self.collectionView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+    }
+    
+    @objc func pullToRefresh(_ sender: Any) {
+        self.searchBarSearchButtonClicked(self.searchBar)
+        self.collectionView.refreshControl?.endRefreshing()
     }
 
     @IBAction func tapBackGround(_ sender: Any) {
