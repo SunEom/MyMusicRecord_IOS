@@ -138,9 +138,11 @@ class ViewController: UIViewController {
                     guard let genre = posting["genre"] as? String else { return }
                     guard let postBody = posting["post_body"] as? String else { return }
                     guard let created = posting["created_date"] as? String else { return }
+                    guard let postNum = posting["post_num"] as? Int else { return }
+                    guard let writerId = posting["writer_id"] as? Int else { return }
                     guard let createdDate = Util.StringToDate(date: String(created.split(separator: "T")[0])) else { return }
                                                               
-                    self.recentPostings.append(Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, createdDate: createdDate))
+                    self.recentPostings.append(Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, postNum: postNum, writerId: writerId, createdDate: createdDate))
                 }
                 
                 self.collectionView.reloadData()

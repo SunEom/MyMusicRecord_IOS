@@ -13,6 +13,7 @@ class GenreViewController: UIViewController {
     var genre: String?
     var genrePostings = [Posting]()
     
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,6 @@ class GenreViewController: UIViewController {
         }
         configureNavigationBar()
         configureCollectionView()
-        addSampleContents()
-        
     }
     
     private func configureCollectionView() {
@@ -32,16 +31,6 @@ class GenreViewController: UIViewController {
         self.collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         collectionView.dataSource = self
         collectionView.delegate = self
-    }
-     
-    private func addSampleContents() {
-        print(genre!)
-        genrePostings.append(Posting(title: "Winter Flower", artist: "YounHa", genre: genre!.uppercased(), nickname: "Suneom", postBody: "Good..", createdDate: Date()))
-        genrePostings.append(Posting(title: "I'MMA DO", artist: "YUMDDA", genre: genre!.uppercased(), nickname: "Suneom", postBody: "Good!", createdDate: Date()))
-        genrePostings.append(Posting(title: "Snowman", artist: "Sia", genre: genre!.uppercased(), nickname: "Suneom", postBody: "Good..😃", createdDate: Date()))
-        genrePostings.append(Posting(title: "TWINTAIL20", artist: "D-Hack", genre: genre!.uppercased(), nickname: "Suneom", postBody: "My favorite Song!", createdDate: Date()))
-        genrePostings.append(Posting(title: "Have to", artist: "YounHa", genre: genre!.uppercased(), nickname: "Suneom", postBody: "Cool..", createdDate: Date()))
-        collectionView.reloadData()
     }
     
     private func configureNavigationBar() {
@@ -65,10 +54,12 @@ class GenreViewController: UIViewController {
                     guard let nickname = "Suneom" as? String else { return }
                     guard let genre = posting["genre"] as? String else { return }
                     guard let postBody = posting["post_body"] as? String else { return }
+                    guard let postNum = posting["post_num"] as? Int else { return }
+                    guard let writerId = posting["writer_id"] as? Int else { return }
                     guard let created = posting["created_date"] as? String else { return }
                     guard let createdDate = Util.StringToDate(date: String(created.split(separator: "T")[0])) else { return }
 
-                    self.genrePostings.append(Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, createdDate: createdDate))
+                    self.genrePostings.append(Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, postNum: postNum, writerId: writerId, createdDate: createdDate))
                 }
 
                 self.collectionView.reloadData()

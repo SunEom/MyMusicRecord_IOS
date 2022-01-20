@@ -13,9 +13,9 @@ struct Posting {
     var genre: String
     var nickname: String
     var postBody: String
-//    var postNum: Int
+    var postNum: Int
 //    var userId: String
-//    var writerId: Int
+    var writerId: Int
     var createdDate: Date
 //    var updatedDate: Date
 }
