@@ -21,10 +21,24 @@ class NewPostingViewController: UIViewController {
     @IBOutlet weak var electronicGenreButton: UIButton!
     
     var selectedButton: UIButton?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(signInNotification(_:)), name: NSNotification.Name("signIn"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(signInNotification(_:)), name: NSNotification.Name("logOut"), object: nil)
+    }
+    
+    @objc func signInNotification(_ notification: Notification){
+        guard let user = notification.object as? User else { return }
+        self.user = user
+    }
+    
+    @objc func logOutNotification(_ notification: Notification){
+        self.user = nil
     }
     
     private func configureViewController() {
@@ -70,6 +84,11 @@ class NewPostingViewController: UIViewController {
     }
     
     @IBAction func tapAddButton(_ sender: Any) {
+        if user == nil {
+            Util.createSimpleAlert(self, title: "로그인", message: "로그인이 필요한 서비스입니다.")
+            return
+        }
+        
         guard let title = titleTextField.text else { return }
         guard let artist = artistTextField.text else { return }
         guard let postBody = postBodyTextView.text else { return }
