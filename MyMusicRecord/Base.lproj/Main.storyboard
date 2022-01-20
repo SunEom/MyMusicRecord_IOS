@@ -578,11 +578,11 @@
             </objects>
             <point key="canvasLocation" x="-668" y="800"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="I8F-HQ-xlK">
             <objects>
                 <navigationController id="rht-RN-148" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="house" catalog="system" selectedImage="house.fill" id="zaN-NF-eq0"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="zaN-NF-eq0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Kqt-i0-zNi">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2021,9 +2021,6 @@
                             <constraint firstItem="7BL-8x-qAF" firstAttribute="bottom" secondItem="oi9-Jh-CfB" secondAttribute="bottom" id="vkL-Ux-dXB"/>
                             <constraint firstItem="7BL-8x-qAF" firstAttribute="trailing" secondItem="oi9-Jh-CfB" secondAttribute="trailing" id="wTq-1s-Bab"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="Vmp-Yw-jlH" appends="YES" id="37I-73-MbO"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="t99-Vj-GMB"/>
                     <navigationItem key="navigationItem" title="Search" id="KjH-YT-vbi"/>
@@ -2033,11 +2030,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buy-bc-f4K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Vmp-Yw-jlH">
-                    <connections>
-                        <action selector="tapBackGround:" destination="gQO-3S-MqK" id="j4q-mt-DmY"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2487" y="1536"/>
         </scene>
