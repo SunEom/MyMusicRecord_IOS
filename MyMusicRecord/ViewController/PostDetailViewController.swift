@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PostDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,9 +22,11 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var commentDivider: UITextView!
     @IBOutlet weak var commentTitleLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var commentCreateButton: UIButton!
     
     var post: Posting?
     var comments = [Comment]()
+    var user: User?
     
     var isKeyboardVisible: Bool = false
     
@@ -32,8 +35,30 @@ class PostDetailViewController: UIViewController {
         configureViewController()
         configureNavigationBar()
         configureCommentCollectionView()
-        addCommentSamples()
         setKeyboardObserver()
+        requestGetComments()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(signInNotification(_:)), name: NSNotification.Name("signIn"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(logOutNotification(_:)), name: NSNotification.Name("logOut"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if user == nil {
+            self.commentInputTextView.isEditable = false
+            self.commentInputTextView.isSelectable = false
+            self.commentCreateButton.isEnabled = false
+            self.commentCreateButton.setTitle("등록", for: .disabled)
+            self.commentCreateButton.setTitleColor(.lightGray, for: .disabled)
+            self.commentInputTextView.text = "로그인을 해주세요."
+            self.commentInputTextView.textColor = .lightGray
+        } else {
+            self.commentInputTextView.isEditable = true
+            self.commentCreateButton.isEnabled = true
+            self.commentInputTextView.text = ""
+            self.commentInputTextView.textColor = .black
+        }
     }
     
     private func configureNavigationBar() {
@@ -76,22 +101,57 @@ class PostDetailViewController: UIViewController {
         commentCollectioinView.dataSource = self
     }
     
-    private func addCommentSamples() {
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello1", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello2", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello3", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello4", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello5", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello6", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello7", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello8", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        comments.append(Comment(postNum: 1, commentNum: 1, contents: "Hello9", writtenDate: Date(), updatedDate: Date(), commentID: 1, nickname: "Suneom"))
-        
-        commentTitleLabel.text = "Comments (\(self.comments.count))"
-        
-        commentCollectioinView.reloadData()
+    private func setCommentsCount(){
+        self.commentTitleLabel.text = "Comments (\(comments.count))"
     }
 
+    private func requestGetComments(){
+        guard let postNum = self.post?.postNum else { return }
+        
+        comments.removeAll()
+        
+        AF.request("\(Env.getServerURL())/comment/\(postNum)", method: .get)
+            .validate(statusCode: 200..<300)
+            .responseJSON() { response in
+                switch response.result {
+                case .success(let value):
+                    guard let value = value as? [String: Any] else { return }
+                    guard let payload = value["payload"] as? [[String: Any]] else { return }
+                    
+                    for comment in payload {
+                        guard let postNum = comment["post_num"] as? Int else { return }
+                        guard let commentNum = comment["comment_num"] as? Int else { return }
+                        guard let contents = comment["comment"] as? String else { return }
+                        guard let written = comment["written_date"] as? String else { return }
+                        guard let commenterID = comment["commenter"] as? Int else { return }
+                        guard let nickname = comment["nickname"] as? String else { return }
+                        guard let writtenDate = Util.StringToDate(date: String(written.split(separator: "T")[0])) else { return }
+                        
+                        self.comments.append(Comment(postNum: postNum, commentNum: commentNum, contents: contents, writtenDate: writtenDate, updatedDate: nil, commenterID: commenterID, nickname: nickname))
+                    }
+                    
+                    self.commentCollectioinView.reloadData()
+                    self.setCommentsCount()
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+    }
+    
+    @objc func logOutNotification(_ notification: Notification){
+        self.user = nil
+        self.commentInputTextView.isEditable = false
+        self.commentInputTextView.text = "로그인을 해주세요."
+    }
+    
+    @objc func signInNotification(_ notification: Notification){
+        guard let user = notification.object as? User else { return }
+        self.user = user
+        self.commentInputTextView.isEditable = true
+        self.commentInputTextView.text = ""
+    }
+    
     @IBAction func tapBackgroundView(_ sender: Any) {
         view.endEditing(true)
     }

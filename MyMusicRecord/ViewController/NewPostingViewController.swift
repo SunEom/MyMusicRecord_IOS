@@ -132,11 +132,13 @@ class NewPostingViewController: UIViewController {
                     guard let nickname = "Suneom" as? String else { return }
                     guard let genre = payload["genre"] as? String else { return }
                     guard let postBody = payload["post_body"] as? String else { return }
+                    guard let postNum = payload["post_num"] as? Int else { return }
+                    guard let writerId = payload["writer_id"] as? Int else { return }
                     guard let created = payload["created_date"] as? String else { return }
                     guard let createdDate = Util.StringToDate(date: String(created.split(separator: "T")[0])) else { return }
                     
                     guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
-                    viewController.post = Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, createdDate: createdDate)
+                    viewController.post = Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, postNum: postNum, writerId: writerId, createdDate: createdDate)
                     
                     self.resetInputs()
                     

@@ -12,7 +12,7 @@ struct Comment {
     var commentNum: Int
     var contents: String
     var writtenDate: Date
-    var updatedDate: Date
-    var commentID: Int
+    var updatedDate: Date?
+    var commenterID: Int
     var nickname: String
 }

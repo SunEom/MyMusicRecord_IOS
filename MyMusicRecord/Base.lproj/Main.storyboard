@@ -1075,6 +1075,7 @@
                         <outlet property="artistLabel" destination="ocu-W4-tfb" id="bp8-3C-CV1"/>
                         <outlet property="bottomDivider" destination="xY6-LU-VjB" id="YBS-Lp-vOh"/>
                         <outlet property="commentCollectioinView" destination="MJl-zQ-lAA" id="QVs-q4-8iq"/>
+                        <outlet property="commentCreateButton" destination="qJm-r6-CFa" id="t3i-bC-280"/>
                         <outlet property="commentDivider" destination="Co6-UI-WhP" id="QeB-7Z-q9l"/>
                         <outlet property="commentInputTextView" destination="M6E-cV-ItZ" id="rw9-uD-HO7"/>
                         <outlet property="commentTitleLabel" destination="gXh-4h-SvH" id="Pvw-Yb-WuT"/>
