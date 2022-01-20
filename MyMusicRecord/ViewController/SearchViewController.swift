@@ -11,6 +11,7 @@ import Alamofire
 class SearchViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet var tapViewGesture: UITapGestureRecognizer!
     
     var resultPostings = [Posting]()
     
@@ -20,7 +21,7 @@ class SearchViewController: UIViewController {
         configureSearchBar()
         configureViewController()
     }
-    
+
     private func configureViewController() {
         self.navigationController?.navigationBar.tintColor = .black
     }
@@ -44,9 +45,7 @@ class SearchViewController: UIViewController {
         self.collectionView.refreshControl?.endRefreshing()
     }
 
-    @IBAction func tapBackGround(_ sender: Any) {
-        view.endEditing(true)
-    }
+
 }
 
 extension SearchViewController: UICollectionViewDataSource {
@@ -73,6 +72,15 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: UIScreen.main.bounds.width, height: ((UIScreen.main.bounds.width - 40)/360*200)+130)
     }
 }
+
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
+        viewController.post = self.resultPostings[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 
 extension SearchViewController: UISearchBarDelegate {
     
@@ -118,15 +126,6 @@ extension SearchViewController: UISearchBarDelegate {
                     print("error: \(String(describing: error.errorDescription))")
                 }
             }
-        
     }
     
-}
-
-extension SearchViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
-        viewController.post = resultPostings[indexPath.row]
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
 }
