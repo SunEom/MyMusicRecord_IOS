@@ -28,6 +28,12 @@ class ViewController: UIViewController {
             name: Notification.Name("changeProfile"),
             object: nil)
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(requestUserInfoNotification(_:)),
+            name: Notification.Name("requestUserInfo"),
+            object: nil)
+
         
         self.loadUserData()
         self.requestHttp()
@@ -56,6 +62,10 @@ class ViewController: UIViewController {
     
     @objc func logOutNotification(_ notification: Notification){
         self.user = nil
+    }
+    
+    @objc func requestUserInfoNotification(_ notification: Notification){
+        NotificationCenter.default.post(name: Notification.Name("responseUserInfo"), object: self.user)
     }
     
     @objc func signInNotification(_ notification: Notification){
@@ -246,6 +256,7 @@ extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
         viewController.post = recentPostings[indexPath.row]
+        viewController.user = self.user
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
