@@ -27,9 +27,18 @@ class NewPostingViewController: UIViewController {
         super.viewDidLoad()
         configureViewController()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(responseUserInfo(_:)), name: NSNotification.Name("responseUserInfo"), object: nil)
+        
+        NotificationCenter.default.post(name: Notification.Name("requestUserInfo"), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(signInNotification(_:)), name: NSNotification.Name("signIn"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(signInNotification(_:)), name: NSNotification.Name("logOut"), object: nil)
+    }
+    
+    @objc func responseUserInfo(_ notification: Notification){
+        guard let user = notification.object as? User else { return }
+        self.user = user
     }
     
     @objc func signInNotification(_ notification: Notification){
@@ -139,6 +148,8 @@ class NewPostingViewController: UIViewController {
                     
                     guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
                     viewController.post = Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, postNum: postNum, writerId: writerId, createdDate: createdDate)
+                    
+                    viewController.user = self.user
                     
                     self.resetInputs()
                     

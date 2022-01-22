@@ -20,8 +20,31 @@ class GenreViewController: UIViewController {
         Task {
             await requestHttp()
         }
+     
+        NotificationCenter.default.addObserver(self, selector: #selector(responseUserInfo(_:)), name: NSNotification.Name("responseUserInfo"), object: nil)
+        
+        NotificationCenter.default.post(name: Notification.Name("requestUserInfo"), object: nil, userInfo: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(signInNotification(_:)), name: NSNotification.Name("signIn"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(logOutNotification(_:)), name: NSNotification.Name("logOut"), object: nil)
+        
         configureNavigationBar()
         configureCollectionView()
+    }
+    
+    @objc func logOutNotification(_ notification: Notification){
+        self.user = nil
+    }
+    
+    @objc func responseUserInfo(_ notification: Notification){
+        guard let user = notification.object as? User else { return }
+        self.user = user
+    }
+    
+    @objc func signInNotification(_ notification: Notification){
+        guard let user = notification.object as? User else { return }
+        self.user = user
     }
     
     private func configureCollectionView() {
@@ -103,6 +126,7 @@ extension GenreViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
         viewController.post = self.genrePostings[indexPath.row]
+        viewController.user = self.user
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
