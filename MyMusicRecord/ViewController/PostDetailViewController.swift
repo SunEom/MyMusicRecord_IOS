@@ -139,6 +139,44 @@ class PostDetailViewController: UIViewController {
             }
     }
     
+    private func requestAddNewComment() {
+        guard let comment = self.commentInputTextView.text else { return }
+        
+        let PARAM: Parameters = [
+            "post_num": self.post?.postNum,
+            "comment": comment
+        ]
+        
+        AF.request("\(Env.getServerURL())/comment/create", method: .post, parameters: PARAM)
+            .validate(statusCode: 200..<300)
+            .responseJSON() { response in
+                switch response.result {
+                case .success(let value):
+                    self.comments.removeAll()
+                    guard let value = value as? [String: Any] else { return }
+                    guard let payload = value["payload"] as? [[String: Any]] else { return }
+                    
+                    for comment in payload {
+                        guard let postNum = comment["post_num"] as? Int else { return }
+                        guard let commentNum = comment["comment_num"] as? Int else { return }
+                        guard let contents = comment["comment"] as? String else { return }
+                        guard let written = comment["written_date"] as? String else { return }
+                        guard let commenterID = comment["commenter"] as? Int else { return }
+                        guard let nickname = comment["nickname"] as? String else { return }
+                        guard let writtenDate = Util.StringToDate(date: String(written.split(separator: "T")[0])) else { return }
+                        
+                        self.comments.append(Comment(postNum: postNum, commentNum: commentNum, contents: contents, writtenDate: writtenDate, updatedDate: nil, commenterID: commenterID, nickname: nickname))
+                    }
+                    
+                    self.commentCollectioinView.reloadData()
+                    self.setCommentsCount()
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }
+    }
+    
     @objc func logOutNotification(_ notification: Notification){
         self.user = nil
         self.commentInputTextView.isEditable = false
@@ -150,6 +188,10 @@ class PostDetailViewController: UIViewController {
         self.user = user
         self.commentInputTextView.isEditable = true
         self.commentInputTextView.text = ""
+    }
+    
+    @IBAction func tapAddNewCommentButton(_ sender: Any) {
+        self.requestAddNewComment()
     }
     
     @IBAction func tapBackgroundView(_ sender: Any) {
