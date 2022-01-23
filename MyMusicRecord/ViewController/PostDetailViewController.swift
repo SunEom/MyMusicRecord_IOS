@@ -104,6 +104,10 @@ class PostDetailViewController: UIViewController {
     private func setCommentsCount(){
         self.commentTitleLabel.text = "Comments (\(comments.count))"
     }
+    
+    private func resetCommentTextView() {
+        self.commentInputTextView.text = ""
+    }
 
     private func requestGetComments(){
         guard let postNum = self.post?.postNum else { return }
@@ -142,6 +146,11 @@ class PostDetailViewController: UIViewController {
     private func requestAddNewComment() {
         guard let comment = self.commentInputTextView.text else { return }
         
+        if comment == "" {
+            Util.createSimpleAlert(self, title: "댓글 오류", message: "댓글의 내용을 입력해주세요.")
+            return
+        }
+        
         let PARAM: Parameters = [
             "post_num": self.post?.postNum,
             "comment": comment
@@ -168,6 +177,7 @@ class PostDetailViewController: UIViewController {
                         self.comments.append(Comment(postNum: postNum, commentNum: commentNum, contents: contents, writtenDate: writtenDate, updatedDate: nil, commenterID: commenterID, nickname: nickname))
                     }
                     
+                    self.resetCommentTextView()
                     self.commentCollectioinView.reloadData()
                     self.setCommentsCount()
                     
