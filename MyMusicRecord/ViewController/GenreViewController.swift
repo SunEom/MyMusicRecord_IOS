@@ -47,13 +47,23 @@ class GenreViewController: UIViewController {
         self.user = user
     }
     
+    @objc func pullToRefresh(_ sender: Any) {
+        Task {
+            await self.requestHttp()
+        }
+        self.collectionView.refreshControl?.endRefreshing()
+    }
+    
     private func configureCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
         layout.minimumLineSpacing = 10
-        self.collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+        self.collectionView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         collectionView.dataSource = self
         collectionView.delegate = self
+        self.collectionView.refreshControl = UIRefreshControl()
+        self.collectionView.refreshControl?.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
+        self.collectionView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
     }
     
     private func configureNavigationBar() {
@@ -64,12 +74,14 @@ class GenreViewController: UIViewController {
     
     private func requestHttp() async {
         guard let genre = genre else { return }
-        await AF.request("\(Env.getServerURL())/search/genres/\(genre)").responseJSON() { response in
+        await AF.request("\(Env.getServerURL())/search/genres/\(genre.split(separator: " ")[0])").responseJSON() { response in
           switch response.result {
           case .success:
             if let data = try! response.result.get() as? [String: Any] {
                 guard let postings = data["payload"] as? NSArray else { return }
             
+                self.genrePostings.removeAll()
+                
                 for posting in postings {
                     guard let posting = posting as? [String: Any] else { return }
                     guard let title = posting["title"] as? String else { return }
@@ -93,6 +105,7 @@ class GenreViewController: UIViewController {
           }
         }
     }
+    
 }
 
 extension GenreViewController: UICollectionViewDataSource {

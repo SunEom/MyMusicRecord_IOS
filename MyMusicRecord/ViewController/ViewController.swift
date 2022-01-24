@@ -57,8 +57,6 @@ class ViewController: UIViewController {
             "password": password
         ]
         
-        print(PARAM)
-        
         self.requestPostSigniIn(PARAM: PARAM)
         
     }
