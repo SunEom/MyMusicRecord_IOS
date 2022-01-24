@@ -11,4 +11,7 @@ class CommentCell: UICollectionViewCell {
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var divider: UITextView!
+    @IBOutlet weak var buttonStackView: UIStackView!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
 }
