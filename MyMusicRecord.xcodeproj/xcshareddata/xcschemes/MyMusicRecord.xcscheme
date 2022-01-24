@@ -53,7 +53,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "SERVER_URL"
-            value = "http://localhost:8000"
+            value = "https://my-music-records.herokuapp.com"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
