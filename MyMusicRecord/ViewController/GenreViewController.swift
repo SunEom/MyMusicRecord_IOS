@@ -51,7 +51,7 @@ class GenreViewController: UIViewController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
         layout.minimumLineSpacing = 10
-        self.collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+        self.collectionView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -64,7 +64,7 @@ class GenreViewController: UIViewController {
     
     private func requestHttp() async {
         guard let genre = genre else { return }
-        await AF.request("\(Env.getServerURL())/search/genres/\(genre)").responseJSON() { response in
+        await AF.request("\(Env.getServerURL())/search/genres/\(genre.split(separator: " ")[0])").responseJSON() { response in
           switch response.result {
           case .success:
             if let data = try! response.result.get() as? [String: Any] {
