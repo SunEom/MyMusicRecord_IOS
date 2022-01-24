@@ -53,7 +53,6 @@ class LoginViewController: UIViewController {
             {
             //통신성공
             case .success(let value):
-                print(value)
                 guard let data = value as? [String: Any] else { return }
                 guard let userData = data["payload"] as? [String: Any] else { return }
                 guard let id = userData["id"] as? Int else { return }

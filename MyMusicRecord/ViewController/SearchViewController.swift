@@ -118,7 +118,7 @@ extension SearchViewController: UISearchBarDelegate {
             return
         }
         
-        self.resultPostings.removeAll()
+        
         
         AF.request("\(Env.getServerURL())/search/keyword/\(keyword)", method: .get)
             .validate(statusCode: 200..<300)
@@ -130,6 +130,8 @@ extension SearchViewController: UISearchBarDelegate {
                     guard let data = value as? [String: Any] else { return }
                     guard let postings = data["payload"] as? NSArray else { return }
                 
+                    self.resultPostings.removeAll()
+                    
                     for posting in postings {
                         guard let posting = posting as? [String: Any] else { return }
                         guard let title = posting["title"] as? String else { return }

@@ -33,11 +33,12 @@ class ViewController: UIViewController {
             selector: #selector(requestUserInfoNotification(_:)),
             name: Notification.Name("requestUserInfo"),
             object: nil)
-
         
-        self.loadUserData()
-        self.requestHttp()
-    
+        Task {
+            await self.loadUserData()
+            await self.requestHttp()
+        }
+        
         configureCollectionView()
     }
     
@@ -45,7 +46,7 @@ class ViewController: UIViewController {
         configureNavigationBar()
     }
     
-    private func loadUserData(){
+    private func loadUserData() async {
         let userDefaults = UserDefaults.standard
         guard let signInInfo = userDefaults.object(forKey: "signInInfo") as? [String: String] else { return }
         guard let id = signInInfo["id"] else { return }
@@ -55,6 +56,8 @@ class ViewController: UIViewController {
             "id": id,
             "password": password
         ]
+        
+        print(PARAM)
         
         self.requestPostSigniIn(PARAM: PARAM)
         
@@ -79,8 +82,9 @@ class ViewController: UIViewController {
     }
     
     @objc func pullToRefresh(_ sender: Any) {
-        self.recentPostings.removeAll()
-        self.requestHttp()
+        Task {
+            await self.requestHttp()
+        }
         self.collectionView.refreshControl?.endRefreshing()
     }
     
@@ -99,7 +103,8 @@ class ViewController: UIViewController {
                 guard let userId = userData["user_id"] as? String else { return }
                 guard let genres = userData["genres"] as? NSArray else { return }
                 guard let nickname = userData["nickname"] as? String else { return }
-                guard let aboutMe = userData["about_me"] as? String? else { return }
+//                guard let aboutMe = userData["about_me"] as? String? else { return }
+                let aboutMe = ""
                 guard let password = userData["password"] as? String else { return }
                 
                 NotificationCenter.default.post(
@@ -133,13 +138,15 @@ class ViewController: UIViewController {
     }
 
     
-    private func requestHttp() {
+    private func requestHttp() async {
         AF.request("\(Env.getServerURL())/post").responseJSON() { response in
           switch response.result {
           case .success:
             if let data = try! response.result.get() as? [String: Any] {
                 guard let postings = data["payload"] as? NSArray else { return }
-    
+                    
+                self.recentPostings.removeAll()
+                
                 for posting in postings {
                     guard let posting = posting as? [String: Any] else { return }
                     guard let title = posting["title"] as? String else { return }
