@@ -47,6 +47,13 @@ class GenreViewController: UIViewController {
         self.user = user
     }
     
+    @objc func pullToRefresh(_ sender: Any) {
+        Task {
+            await self.requestHttp()
+        }
+        self.collectionView.refreshControl?.endRefreshing()
+    }
+    
     private func configureCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
@@ -54,6 +61,9 @@ class GenreViewController: UIViewController {
         self.collectionView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         collectionView.dataSource = self
         collectionView.delegate = self
+        self.collectionView.refreshControl = UIRefreshControl()
+        self.collectionView.refreshControl?.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
+        self.collectionView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
     }
     
     private func configureNavigationBar() {
@@ -70,6 +80,8 @@ class GenreViewController: UIViewController {
             if let data = try! response.result.get() as? [String: Any] {
                 guard let postings = data["payload"] as? NSArray else { return }
             
+                self.genrePostings.removeAll()
+                
                 for posting in postings {
                     guard let posting = posting as? [String: Any] else { return }
                     guard let title = posting["title"] as? String else { return }
@@ -93,6 +105,7 @@ class GenreViewController: UIViewController {
           }
         }
     }
+    
 }
 
 extension GenreViewController: UICollectionViewDataSource {
