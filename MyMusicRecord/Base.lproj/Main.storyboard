@@ -955,36 +955,36 @@
                                                 <rect key="frame" x="0.0" y="640" width="414" height="360"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fvW-GO-9xg">
-                                                    <size key="itemSize" width="414" height="128"/>
+                                                    <size key="itemSize" width="414" height="70"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CommentCell" reuseIdentifier="CommentCell" id="nCk-RE-c23" customClass="CommentCell" customModule="MyMusicRecord" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6qO-9l-Xeq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-aR-d67">
-                                                                    <rect key="frame" x="20" y="10" width="374" height="118"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-aR-d67">
+                                                                    <rect key="frame" x="20" y="10" width="374" height="41"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Nz-mE-qqd">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="10"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="2Nz-mE-qqd">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="15"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sangbon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FF-hS-Yyd">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="10"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="15"/>
                                                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>
                                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UaN-IY-Ft7">
-                                                                                    <rect key="frame" x="344" y="0.0" width="30" height="10"/>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UaN-IY-Ft7">
+                                                                                    <rect key="frame" x="334" y="0.0" width="40" height="15"/>
                                                                                     <subviews>
                                                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40z-rn-u3m">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="5" height="10"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="5" height="15"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" constant="5" id="BTv-Is-ADb"/>
                                                                                             </constraints>
@@ -993,9 +993,12 @@
                                                                                                 <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="medium"/>
                                                                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             </buttonConfiguration>
+                                                                                            <connections>
+                                                                                                <action selector="tapEditButton:" destination="nCk-RE-c23" eventType="touchUpInside" id="F2F-2Y-I7v"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6q-DD-Hxy">
-                                                                                            <rect key="frame" x="25" y="0.0" width="5" height="10"/>
+                                                                                            <rect key="frame" x="35" y="0.0" width="5" height="15"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" constant="5" id="rBg-6Q-1Pi"/>
                                                                                             </constraints>
@@ -1004,25 +1007,29 @@
                                                                                                 <imageReference key="image" image="trash" catalog="system" symbolScale="medium"/>
                                                                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             </buttonConfiguration>
+                                                                                            <connections>
+                                                                                                <action selector="tapDeleteButton:" destination="nCk-RE-c23" eventType="touchUpInside" id="Vyz-fw-u0S"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                     </subviews>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="10" id="6OO-Ym-6wO"/>
-                                                                                    </constraints>
                                                                                 </stackView>
                                                                             </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="15" id="PYR-2l-ITc"/>
+                                                                            </constraints>
                                                                         </stackView>
-                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hello World!" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThT-jc-bkN">
-                                                                            <rect key="frame" x="0.0" y="10" width="374" height="108"/>
-                                                                            <inset key="scrollIndicatorInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                            <color key="textColor" systemColor="labelColor"/>
-                                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                        </textView>
+                                                                        <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-Gm-hlQ">
+                                                                            <rect key="frame" x="0.0" y="21" width="374" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="Jk2-ER-dbf"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <textInputTraits key="textInputTraits"/>
+                                                                        </textField>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf2-wP-aua">
-                                                                    <rect key="frame" x="0.0" y="127" width="414" height="1"/>
+                                                                    <rect key="frame" x="0.0" y="60" width="414" height="1"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="rYQ-aG-lSX"/>
@@ -1035,8 +1042,7 @@
                                                             <constraints>
                                                                 <constraint firstItem="Nf2-wP-aua" firstAttribute="leading" secondItem="6qO-9l-Xeq" secondAttribute="leading" id="9xV-1I-cKL"/>
                                                                 <constraint firstItem="Nf2-wP-aua" firstAttribute="leading" secondItem="6qO-9l-Xeq" secondAttribute="leading" id="MGO-2l-92H"/>
-                                                                <constraint firstItem="Nf2-wP-aua" firstAttribute="bottom" secondItem="kwx-aR-d67" secondAttribute="bottom" id="QIu-iR-M3x"/>
-                                                                <constraint firstAttribute="bottom" secondItem="kwx-aR-d67" secondAttribute="bottom" id="aKl-7S-f81"/>
+                                                                <constraint firstItem="Nf2-wP-aua" firstAttribute="bottom" secondItem="kwx-aR-d67" secondAttribute="bottom" constant="10" id="QIu-iR-M3x"/>
                                                                 <constraint firstItem="kwx-aR-d67" firstAttribute="top" secondItem="6qO-9l-Xeq" secondAttribute="top" constant="10" id="b4H-XL-BYo"/>
                                                                 <constraint firstItem="kwx-aR-d67" firstAttribute="leading" secondItem="6qO-9l-Xeq" secondAttribute="leading" constant="20" id="dsd-DA-Hyk"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Nf2-wP-aua" secondAttribute="trailing" id="hya-7p-tiD"/>
@@ -1044,10 +1050,10 @@
                                                                 <constraint firstAttribute="trailing" secondItem="Nf2-wP-aua" secondAttribute="trailing" id="wGN-cl-E8t"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="414" height="128"/>
+                                                        <size key="customSize" width="414" height="70"/>
                                                         <connections>
                                                             <outlet property="buttonStackView" destination="UaN-IY-Ft7" id="aMA-4f-w7f"/>
-                                                            <outlet property="contentsTextView" destination="ThT-jc-bkN" id="xly-YW-WY9"/>
+                                                            <outlet property="contentsTextField" destination="cpY-Gm-hlQ" id="EU9-MH-mUs"/>
                                                             <outlet property="deleteButton" destination="K6q-DD-Hxy" id="Q1W-Zf-OgL"/>
                                                             <outlet property="divider" destination="Nf2-wP-aua" id="vgV-mS-wcb"/>
                                                             <outlet property="editButton" destination="40z-rn-u3m" id="5pR-J5-RUx"/>
@@ -1113,7 +1119,7 @@
                         <outlet property="commentCollectioinView" destination="MJl-zQ-lAA" id="QVs-q4-8iq"/>
                         <outlet property="commentCreateButton" destination="qJm-r6-CFa" id="t3i-bC-280"/>
                         <outlet property="commentDivider" destination="Co6-UI-WhP" id="QeB-7Z-q9l"/>
-                        <outlet property="commentInputTextView" destination="M6E-cV-ItZ" id="rw9-uD-HO7"/>
+                        <outlet property="commentInputTextView" destination="M6E-cV-ItZ" id="pu7-gx-Lpe"/>
                         <outlet property="commentTitleLabel" destination="gXh-4h-SvH" id="Pvw-Yb-WuT"/>
                         <outlet property="dateLabel" destination="mVy-B0-7nR" id="QXi-7W-bOX"/>
                         <outlet property="genreLabel" destination="Kex-GM-KlK" id="De1-Xn-Nzh"/>

@@ -41,6 +41,8 @@ class PostDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(signInNotification(_:)), name: NSNotification.Name("signIn"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(logOutNotification(_:)), name: NSNotification.Name("logOut"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(commentUpdatedNotification(_:)), name: NSNotification.Name("CommentUpdated"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,8 +114,6 @@ class PostDetailViewController: UIViewController {
     private func requestGetComments(){
         guard let postNum = self.post?.postNum else { return }
         
-        comments.removeAll()
-        
         AF.request("\(Env.getServerURL())/comment/\(postNum)", method: .get)
             .validate(statusCode: 200..<300)
             .responseJSON() { response in
@@ -121,6 +121,8 @@ class PostDetailViewController: UIViewController {
                 case .success(let value):
                     guard let value = value as? [String: Any] else { return }
                     guard let payload = value["payload"] as? [[String: Any]] else { return }
+                    
+                    self.comments.removeAll()
                     
                     for comment in payload {
                         guard let postNum = comment["post_num"] as? Int else { return }
@@ -200,6 +202,10 @@ class PostDetailViewController: UIViewController {
         self.commentInputTextView.text = ""
     }
     
+    @objc func commentUpdatedNotification(_ notification: Notification){
+        self.requestGetComments()
+    }
+    
     @IBAction func tapAddNewCommentButton(_ sender: Any) {
         self.requestAddNewComment()
     }
@@ -219,12 +225,17 @@ extension PostDetailViewController: UICollectionViewDataSource {
         
         let comment = comments[indexPath.row]
         
+        cell.comment = comment
+        cell.navigationController = self.navigationController
         cell.nicknameLabel.text = comment.nickname
-        cell.contentsTextView.text = comment.contents
-        cell.contentsTextView.textContainerInset = UIEdgeInsets(top: 3, left: -5, bottom: 0, right: 0)
+        cell.contentsTextField.text = comment.contents
         
         cell.divider.layer.borderWidth = 0.5
         cell.divider.layer.borderColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0).cgColor
+        
+        if user == nil {
+            cell.buttonStackView.isHidden = true
+        }
         
         if let user = self.user, user.id != comment.commenterID {
             cell.buttonStackView.isHidden = true
@@ -236,7 +247,7 @@ extension PostDetailViewController: UICollectionViewDataSource {
 
 extension PostDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 130)
+        return CGSize(width: UIScreen.main.bounds.width, height: 80)
     }
 }
 
