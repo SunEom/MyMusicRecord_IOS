@@ -847,13 +847,28 @@
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="K-POP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kex-GM-KlK">
-                                                        <rect key="frame" x="0.0" y="73.5" width="39.5" height="16"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-Hk-53D">
+                                                        <rect key="frame" x="0.0" y="73.5" width="366" height="16"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="K-POP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kex-GM-KlK">
+                                                                <rect key="frame" x="0.0" y="0.0" width="288.5" height="16"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="⭐️ 5.0 / 5.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-8x-oOo">
+                                                                <rect key="frame" x="300.5" y="0.0" width="65.5" height="16"/>
+                                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="WNQ-Hk-53D" secondAttribute="trailing" id="MBQ-6k-cB5"/>
+                                                    <constraint firstItem="WNQ-Hk-53D" firstAttribute="leading" secondItem="kmM-Yb-nhz" secondAttribute="leading" id="nyS-ES-J7D"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="8Hx-uN-ICP">
                                                 <rect key="frame" x="24" y="133.5" width="366" height="276"/>
@@ -1124,6 +1139,7 @@
                         <outlet property="dateLabel" destination="mVy-B0-7nR" id="QXi-7W-bOX"/>
                         <outlet property="genreLabel" destination="Kex-GM-KlK" id="De1-Xn-Nzh"/>
                         <outlet property="postBodyTextView" destination="Nzy-c9-h8i" id="PTG-tc-M9D"/>
+                        <outlet property="ratingLabel" destination="jFf-8x-oOo" id="Zut-zl-Rgf"/>
                         <outlet property="scrollView" destination="DH8-cR-tJR" id="KPv-Ue-qjF"/>
                         <outlet property="titleLabel" destination="Y09-O7-E4h" id="aTu-DE-euE"/>
                         <outlet property="topDivider" destination="nHW-P4-Rym" id="6uY-QL-BgT"/>
