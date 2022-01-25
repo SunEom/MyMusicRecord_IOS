@@ -228,8 +228,7 @@ extension PostDetailViewController: UICollectionViewDataSource {
         cell.comment = comment
         cell.navigationController = self.navigationController
         cell.nicknameLabel.text = comment.nickname
-        cell.contentsTextView.text = comment.contents
-        cell.contentsTextView.textContainerInset = UIEdgeInsets(top: 3, left: -5, bottom: 0, right: 0)
+        cell.contentsTextField.text = comment.contents
         
         cell.divider.layer.borderWidth = 0.5
         cell.divider.layer.borderColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0).cgColor
@@ -248,7 +247,7 @@ extension PostDetailViewController: UICollectionViewDataSource {
 
 extension PostDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 130)
+        return CGSize(width: UIScreen.main.bounds.width, height: 80)
     }
 }
 
