@@ -11,6 +11,7 @@ import Alamofire
 class NewPostingViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var artistTextField: UITextField!
+    @IBOutlet weak var ratingTextField: UITextField!
     @IBOutlet weak var postBodyTextView: UITextView!
     @IBOutlet weak var popGenreButton: UIButton!
     @IBOutlet weak var kpopGenreButton: UIButton!
@@ -60,6 +61,7 @@ class NewPostingViewController: UIViewController {
         titleTextField.text = ""
         artistTextField.text = ""
         postBodyTextView.text = ""
+        ratingTextField.text = ""
         if selectedButton != nil {
             selectedButton?.setTitleColor(.black, for: .normal)
             selectedButton?.backgroundColor = .lightGray
@@ -92,6 +94,10 @@ class NewPostingViewController: UIViewController {
         
     }
     
+    @IBAction func tapBackground(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func tapAddButton(_ sender: Any) {
         if user == nil {
             Util.createSimpleAlert(self, title: "로그인", message: "로그인이 필요한 서비스입니다.")
@@ -100,6 +106,7 @@ class NewPostingViewController: UIViewController {
         
         guard let title = titleTextField.text else { return }
         guard let artist = artistTextField.text else { return }
+        guard let rating = ratingTextField.text else { return }
         guard let postBody = postBodyTextView.text else { return }
         guard let genre = selectedButton?.title(for: .normal) else {
             Util.createSimpleAlert(self, title: "입력 오류", message: "장르를 선택해주세요.")
@@ -112,8 +119,27 @@ class NewPostingViewController: UIViewController {
         }
         
         if artist == "" {
-            Util.createSimpleAlert(self, title: "입력 오류", message: "가수를 입력해주세요.")
+            Util.createSimpleAlert(self,ㅎ title: "입력 오류", message: "가수를 입력해주세요.")
             return
+        }
+        
+        if rating == "" {
+            Util.createSimpleAlert(self, title: "입력 오류", message: "평점을 입력해주세요.")
+            return
+        }
+        
+        if Double(rating) == nil {
+            Util.createSimpleAlert(self, title: "입력 오류", message: "평점은 0이상 5이하의 숫자입니다.")
+            return
+        } else {
+            guard let rate = Double(rating) else { return }
+            if rate > 5 {
+                Util.createSimpleAlert(self, title: "입력 오류", message: "평점은 5점 이하입니다.")
+                return
+            } else if rate < 0 {
+                Util.createSimpleAlert(self, title: "입력 오류", message: "평점은 0점 이상입니다.")
+                return
+            }
         }
         
         if postBody == "" {
@@ -121,12 +147,17 @@ class NewPostingViewController: UIViewController {
             return
         }
         
+        guard let rate = Double(rating) else { return }
+        
         let PARAM: Parameters = [
             "title": title,
             "artist": artist,
             "post_body": postBody,
-            "genre": genre.uppercased()
+            "genre": genre.uppercased(),
+            "rating": rate
         ]
+        
+        self.view.endEditing(true)
         
         AF.request("\(Env.getServerURL())/post/create", method: .post, parameters: PARAM)
             .validate(statusCode: 200..<300)
