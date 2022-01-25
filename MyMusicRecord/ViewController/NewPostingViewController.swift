@@ -119,7 +119,7 @@ class NewPostingViewController: UIViewController {
         }
         
         if artist == "" {
-            Util.createSimpleAlert(self,ㅎ title: "입력 오류", message: "가수를 입력해주세요.")
+            Util.createSimpleAlert(self, title: "입력 오류", message: "가수를 입력해주세요.")
             return
         }
         
