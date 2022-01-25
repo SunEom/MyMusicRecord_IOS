@@ -993,6 +993,9 @@
                                                                                                 <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="medium"/>
                                                                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             </buttonConfiguration>
+                                                                                            <connections>
+                                                                                                <action selector="tapEditButton:" destination="nCk-RE-c23" eventType="touchUpInside" id="F2F-2Y-I7v"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6q-DD-Hxy">
                                                                                             <rect key="frame" x="25" y="0.0" width="5" height="10"/>
@@ -1004,6 +1007,9 @@
                                                                                                 <imageReference key="image" image="trash" catalog="system" symbolScale="medium"/>
                                                                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             </buttonConfiguration>
+                                                                                            <connections>
+                                                                                                <action selector="tapDeleteButton:" destination="nCk-RE-c23" eventType="touchUpInside" id="Vyz-fw-u0S"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <constraints>
