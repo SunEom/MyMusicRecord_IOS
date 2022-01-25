@@ -14,6 +14,7 @@ struct Posting {
     var nickname: String
     var postBody: String
     var postNum: Int
+    var rating: Double
 //    var userId: String
     var writerId: Int
     var createdDate: Date

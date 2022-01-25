@@ -12,6 +12,7 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var postBodyTextView: UITextView!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -74,6 +75,7 @@ class PostDetailViewController: UIViewController {
         guard let postBody = post?.postBody else { return }
         guard let nickname = post?.nickname else { return }
         guard let created = post?.createdDate else { return }
+        guard let rating = post?.rating else { return }
         let createdDate = Util.DateToString(date: created)
         
         titleLabel.text = title
@@ -82,6 +84,7 @@ class PostDetailViewController: UIViewController {
         postBodyTextView.text = postBody
         userLabel.text = nickname
         dateLabel.text = createdDate
+        ratingLabel.text = "⭐️ 5.0 / \(rating)"
         
         topDivider.layer.borderWidth = 1.0
         topDivider.layer.borderColor = UIColor.gray.cgColor
