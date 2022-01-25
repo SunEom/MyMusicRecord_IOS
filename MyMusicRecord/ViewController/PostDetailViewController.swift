@@ -226,6 +226,10 @@ extension PostDetailViewController: UICollectionViewDataSource {
         cell.divider.layer.borderWidth = 0.5
         cell.divider.layer.borderColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0).cgColor
         
+        if user == nil {
+            cell.buttonStackView.isHidden = true
+        }
+        
         if let user = self.user, user.id != comment.commenterID {
             cell.buttonStackView.isHidden = true
         }
