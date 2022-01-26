@@ -215,11 +215,9 @@ class NewPostingViewController: UIViewController {
                 .responseJSON() { response in
                     switch response.result {
                     case .success(let value):
-                        print(value)
                         guard let data = value as? [String: Any] else { return }
                         guard let payload = data["payload"] as? [String: Any] else { return }
-                        print(data)
-                        print(payload)
+                        
                         guard let title = payload["title"] as? String else { return }
                         guard let artist = payload["artist"] as? String else { return }
                         guard let nickname = "Suneom" as? String else { return }
