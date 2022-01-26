@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class PostDetailViewController: UIViewController {
+class PostDetailViewController: UIViewController, NewPostingDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
@@ -47,6 +47,45 @@ class PostDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        guard let post = self.post else { return }
+        AF.request("\(Env.getServerURL())/post/\(post.postNum)", method: .get)
+            .validate(statusCode: 200..<300)
+            .responseJSON() { response in
+                switch response.result {
+                case .success(let value):
+                    guard let data = value as? [String: Any] else { return }
+                    guard let payload = data["payload"] as? [String: Any] else { return }
+                    
+                    guard let post = payload["post"] as? [String: Any] else { return }
+                    guard let user = payload["user"] as? [String: Any] else { return }
+                    
+                    guard let title = post["title"] as? String else { return }
+                    guard let artist = post["artist"] as? String else { return }
+                    guard let nickname = user["nickname"] as? String else { return }
+                    guard let genre = post["genre"] as? String else { return }
+                    guard let postBody = post["post_body"] as? String else { return }
+                    guard let postNum = post["post_num"] as? Int else { return }
+                    guard let rating = post["rating"] as? Double else { return }
+                    guard let writerId = post["writer_id"] as? Int else { return }
+                    guard let created = post["created_date"] as? String else { return }
+                    guard let createdDate = Util.StringToDate(date: String(created.split(separator: "T")[0])) else { return }
+                    
+                    self.post = Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, postNum: postNum, rating: rating, writerId: writerId, createdDate: createdDate)
+                    
+                    guard let posting = self.post else { return }
+                    
+                    self.titleLabel.text = posting.title
+                    self.artistLabel.text = posting.artist
+                    self.genreLabel.text = posting.genre
+                    self.postBodyTextView.text = posting.postBody
+                    self.userLabel.text = posting.nickname
+                    self.dateLabel.text = String(created.split(separator: "T")[0])
+                    self.ratingLabel.text = "⭐️ \(posting.rating) / 5.0"
+                    
+                case.failure(let error):
+                    print("Error: \(error)")
+                }
+            }
         
         if user == nil {
             self.commentInputTextView.isEditable = false
@@ -66,6 +105,14 @@ class PostDetailViewController: UIViewController {
     
     private func configureNavigationBar() {
         self.navigationController?.navigationBar.tintColor = .white
+        
+        guard let userId = self.user?.id else { return }
+        guard let writerId = self.post?.writerId else { return }
+        
+        if userId == writerId {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(tapEditButton))
+        }
+        
     }
     
     private func configureViewController() {
@@ -84,7 +131,7 @@ class PostDetailViewController: UIViewController {
         postBodyTextView.text = postBody
         userLabel.text = nickname
         dateLabel.text = createdDate
-        ratingLabel.text = "⭐️ 5.0 / \(rating)"
+        ratingLabel.text = "⭐️ \(rating) / 5.0"
         
         topDivider.layer.borderWidth = 1.0
         topDivider.layer.borderColor = UIColor.gray.cgColor
@@ -192,6 +239,12 @@ class PostDetailViewController: UIViewController {
             }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let NewPostingViewController = segue.destination as? NewPostingViewController {
+                NewPostingViewController.delegate = self
+            }
+    }
+    
     @objc func logOutNotification(_ notification: Notification){
         self.user = nil
         self.commentInputTextView.isEditable = false
@@ -207,6 +260,27 @@ class PostDetailViewController: UIViewController {
     
     @objc func commentUpdatedNotification(_ notification: Notification){
         self.requestGetComments()
+    }
+    
+    @objc func tapEditButton(){
+        guard let viewContainer = self.storyboard?.instantiateViewController(withIdentifier: "NewPostingViewController") as? NewPostingViewController else { return }
+        guard let posting = self.post else { return }
+        viewContainer.post = post
+        viewContainer.delegate = self
+        self.navigationController?.pushViewController(viewContainer, animated: true)
+    }
+    
+    func updatePosting(posting: Posting) {
+        self.post = posting
+        let createdDate = Util.DateToString(date: posting.createdDate)
+        
+        titleLabel.text = posting.title
+        artistLabel.text = posting.artist
+        genreLabel.text = posting.genre
+        postBodyTextView.text = posting.postBody
+        userLabel.text = posting.nickname
+        dateLabel.text = createdDate
+        ratingLabel.text = "⭐️ \(posting.rating) / 5.0"
     }
     
     @IBAction func tapAddNewCommentButton(_ sender: Any) {
