@@ -1588,6 +1588,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X1S-VV-9IC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ajx-Ua-dTX" firstAttribute="leading" secondItem="X1S-VV-9IC" secondAttribute="leading" constant="24" id="0yn-fJ-cMF"/>
                             <constraint firstItem="X1S-VV-9IC" firstAttribute="trailing" secondItem="dEh-cG-2Ms" secondAttribute="trailing" constant="24" id="Hz3-Zg-PF8"/>
@@ -1602,6 +1603,9 @@
                             <constraint firstItem="2Jg-aW-DaN" firstAttribute="top" secondItem="feB-O9-PgA" secondAttribute="bottom" constant="45" id="xhK-XG-ag4"/>
                             <constraint firstItem="X1S-VV-9IC" firstAttribute="trailing" secondItem="Ajx-Ua-dTX" secondAttribute="trailing" constant="24" id="zVE-2M-BkL"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ldC-UM-ibg" appends="YES" id="mS5-ij-Vwa"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="aboutMeTextView" destination="g6W-nX-RnE" id="Ziq-wc-kuR"/>
@@ -1616,6 +1620,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prT-65-lCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ldC-UM-ibg">
+                    <connections>
+                        <action selector="tapBackground:" destination="A6C-VG-UYu" id="6dF-y6-uzi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-668" y="-1227"/>
         </scene>
