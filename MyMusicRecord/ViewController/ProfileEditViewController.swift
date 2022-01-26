@@ -251,6 +251,9 @@ class ProfileEditViewController: UIViewController {
             }
         }
     }
+    @IBAction func tapBackground(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     
 }
 
