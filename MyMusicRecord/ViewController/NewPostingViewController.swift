@@ -147,6 +147,7 @@ class NewPostingViewController: UIViewController {
     }
     
     @IBAction func tapAddButton(_ sender: Any) {
+        
         if user == nil {
             Util.createSimpleAlert(self, title: "로그인", message: "로그인이 필요한 서비스입니다.")
             return
@@ -197,7 +198,7 @@ class NewPostingViewController: UIViewController {
         
         guard let rate = Double(rating) else { return }
         
-        let PARAM: Parameters = [
+        var PARAM: Parameters = [
             "title": title,
             "artist": artist,
             "post_body": postBody,
@@ -207,6 +208,43 @@ class NewPostingViewController: UIViewController {
         
         self.view.endEditing(true)
         
+        if let post = self.post {
+            PARAM.updateValue(post.postNum, forKey: "post_num")
+            AF.request("\(Env.getServerURL())/post/update", method: .patch, parameters: PARAM)
+                .validate(statusCode: 200..<300)
+                .responseJSON() { response in
+                    switch response.result {
+                    case .success(let value):
+                        guard let data = value as? [String: Any] else { return }
+                        guard let payload = data["payload"] as? [String: Any] else { return }
+                        
+                        guard let title = payload["title"] as? String else { return }
+                        guard let artist = payload["artist"] as? String else { return }
+                        guard let nickname = "Suneom" as? String else { return }
+                        guard let genre = payload["genre"] as? String else { return }
+                        guard let postBody = payload["post_body"] as? String else { return }
+                        guard let postNum = payload["post_num"] as? Int else { return }
+                        guard let rating = payload["rating"] as? Double else { return }
+                        guard let writerId = payload["writer_id"] as? Int else { return }
+                        guard let created = payload["created_date"] as? String else { return }
+                        guard let createdDate = Util.StringToDate(date: String(created.split(separator: "T")[0])) else { return }
+                        
+                        let newPost = Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, postNum: postNum, rating: rating, writerId: writerId, createdDate: createdDate)
+                        
+                        self.delegate?.updatePosting(posting: newPost)
+                        self.navigationController?.popViewController(animated: true)
+                        return
+
+                        
+
+                    case .failure(let error):
+                        print("Error: \(error)")
+                        return
+                    }
+                }
+            return
+        }
+
         AF.request("\(Env.getServerURL())/post/create", method: .post, parameters: PARAM)
             .validate(statusCode: 200..<300)
             .responseJSON() { response in
