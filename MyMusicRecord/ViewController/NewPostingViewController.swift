@@ -8,6 +8,10 @@
 import UIKit
 import Alamofire
 
+protocol NewPostingDelegate: AnyObject {
+    func updatePosting(posting: Posting)
+}
+
 class NewPostingViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var artistTextField: UITextField!
@@ -23,6 +27,9 @@ class NewPostingViewController: UIViewController {
     
     var selectedButton: UIButton?
     var user: User?
+    var post: Posting?
+    
+    weak var delegate: NewPostingDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +58,51 @@ class NewPostingViewController: UIViewController {
         self.user = nil
     }
     
+
+    
     private func configureViewController() {
         self.postBodyTextView.layer.borderColor = UIColor.gray.cgColor
         self.postBodyTextView.layer.borderWidth = 0.2
         self.postBodyTextView.layer.cornerRadius = 10
+        
+        if let post = self.post {
+            self.navigationItem.title = "Edit Posting"
+            
+            
+            self.titleTextField.text = post.title
+            self.artistTextField.text = post.artist
+            self.ratingTextField.text = String(post.rating)
+            self.postBodyTextView.text = post.postBody
+            
+            switch post.genre {
+            case "K-POP":
+                self.selectedButton = kpopGenreButton
+                
+            case "POP":
+                self.selectedButton = popGenreButton
+                
+            case "ROCK":
+                self.selectedButton = rockGenreButton
+                
+            case "JAZZ":
+                self.selectedButton = jazzGenreButton
+                
+            case "HIP-HOP":
+                self.selectedButton = hiphopGenreButton
+                
+            case "DISCO":
+                self.selectedButton = discoGenreButton
+                
+            case "ELECTRONIC":
+                self.selectedButton = electronicGenreButton
+                
+            default:
+                self.selectedButton = nil
+            }
+            guard let selectedButton = selectedButton else { return }
+            selectedButton.setTitleColor(.white, for: .normal)
+            selectedButton.backgroundColor = .systemBlue
+        }
     }
     
     private func resetInputs() {
@@ -178,8 +226,16 @@ class NewPostingViewController: UIViewController {
                     guard let created = payload["created_date"] as? String else { return }
                     guard let createdDate = Util.StringToDate(date: String(created.split(separator: "T")[0])) else { return }
                     
+                    let newPost = Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, postNum: postNum, rating: rating, writerId: writerId, createdDate: createdDate)
+                    
+                    if let post = self.post {
+                        self.delegate?.updatePosting(posting: newPost)
+                        self.navigationController?.popViewController(animated: true)
+                        return
+                    }
+                    
                     guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as? PostDetailViewController else { return }
-                    viewController.post = Posting(title: title, artist: artist, genre: genre, nickname: nickname, postBody: postBody, postNum: postNum, rating: rating, writerId: writerId, createdDate: createdDate)
+                    viewController.post = newPost
                     
                     viewController.user = self.user
                     
