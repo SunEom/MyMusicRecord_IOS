@@ -613,18 +613,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Imh-c7-XfE">
                                 <rect key="frame" x="35" y="144.5" width="355" height="433"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrV-D2-p9K">
-                                        <rect key="frame" x="0.0" y="0.0" width="63" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrV-D2-p9K">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="K-pop">
+                                        <buttonConfiguration key="configuration" style="plain" title="K-pop" titleAlignment="leading">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="tapGenreButton:" destination="aKn-xx-8gi" eventType="touchUpInside" id="KN0-xE-haf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMC-tn-tFD">
-                                        <rect key="frame" x="0.0" y="67" width="60.5" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMC-tn-tFD">
+                                        <rect key="frame" x="0.0" y="67" width="355" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Disco">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -633,8 +633,8 @@
                                             <action selector="tapGenreButton:" destination="aKn-xx-8gi" eventType="touchUpInside" id="HGi-Lo-Tug"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27O-Xj-lFS">
-                                        <rect key="frame" x="0.0" y="134" width="54" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27O-Xj-lFS">
+                                        <rect key="frame" x="0.0" y="134" width="355" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Jazz">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -643,8 +643,8 @@
                                             <action selector="tapGenreButton:" destination="aKn-xx-8gi" eventType="touchUpInside" id="nC2-wu-rTE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obI-h2-96I">
-                                        <rect key="frame" x="0.0" y="201" width="130.5" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obI-h2-96I">
+                                        <rect key="frame" x="0.0" y="201" width="355" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Electronic Music">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -653,8 +653,8 @@
                                             <action selector="tapGenreButton:" destination="aKn-xx-8gi" eventType="touchUpInside" id="CiK-XF-WH3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utN-eS-C6P">
-                                        <rect key="frame" x="0.0" y="268" width="49.5" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utN-eS-C6P">
+                                        <rect key="frame" x="0.0" y="268" width="355" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Pop">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -663,8 +663,8 @@
                                             <action selector="tapGenreButton:" destination="aKn-xx-8gi" eventType="touchUpInside" id="wvH-JS-RrC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAx-Ao-vWw">
-                                        <rect key="frame" x="0.0" y="335" width="56.5" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAx-Ao-vWw">
+                                        <rect key="frame" x="0.0" y="335" width="355" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Rock">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -673,8 +673,8 @@
                                             <action selector="tapGenreButton:" destination="aKn-xx-8gi" eventType="touchUpInside" id="xBk-zy-AHA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ee6-tN-p4k">
-                                        <rect key="frame" x="0.0" y="402" width="77" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ee6-tN-p4k">
+                                        <rect key="frame" x="0.0" y="402" width="355" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Hip-hop">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -684,6 +684,15 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nMC-tn-tFD" secondAttribute="trailing" id="1O9-lJ-8qQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="utN-eS-C6P" secondAttribute="trailing" id="CTz-YQ-63s"/>
+                                    <constraint firstAttribute="trailing" secondItem="27O-Xj-lFS" secondAttribute="trailing" id="Gyj-LE-VyQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="obI-h2-96I" secondAttribute="trailing" id="Ipp-Y6-jEI"/>
+                                    <constraint firstAttribute="trailing" secondItem="JrV-D2-p9K" secondAttribute="trailing" id="Lm1-F7-Mji"/>
+                                    <constraint firstAttribute="trailing" secondItem="uAx-Ao-vWw" secondAttribute="trailing" id="Ybx-Rf-1OA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ee6-tN-p4k" secondAttribute="trailing" id="dOx-Bu-hza"/>
+                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-ha-p67">
                                 <rect key="frame" x="24" y="84" width="366" height="20.5"/>
@@ -1168,10 +1177,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-jc-CVE">
-                                <rect key="frame" x="24" y="214" width="366" height="41.5"/>
+                                <rect key="frame" x="24" y="213.5" width="366" height="40.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYq-6B-HEJ">
-                                        <rect key="frame" x="144.5" y="0.0" width="77" height="20.5"/>
+                                        <rect key="frame" x="144.5" y="0.0" width="77" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="77" id="SkN-4X-0BK"/>
                                         </constraints>
@@ -1180,7 +1189,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpV-Ht-geP">
-                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <rect key="frame" x="128" y="22" width="110" height="1"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="Vbf-8b-kmF"/>
@@ -1191,7 +1200,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qkrco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4V-Ko-wwJ">
-                                        <rect key="frame" x="165" y="25.5" width="36" height="16"/>
+                                        <rect key="frame" x="165.5" y="25" width="35.5" height="15.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1199,10 +1208,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="v1Z-Xp-7ZU">
-                                <rect key="frame" x="24" y="300.5" width="366" height="73"/>
+                                <rect key="frame" x="24" y="299" width="366" height="72.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVD-g1-W2c">
-                                        <rect key="frame" x="145.5" y="0.0" width="75" height="20.5"/>
+                                        <rect key="frame" x="145.5" y="0.0" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="1Gi-rr-Bgn"/>
                                         </constraints>
@@ -1211,7 +1220,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3Z-vn-PLw">
-                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <rect key="frame" x="128" y="22" width="110" height="1"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="2db-b6-pva"/>
@@ -1222,7 +1231,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrm-T6-Zel">
-                                        <rect key="frame" x="14.5" y="25.5" width="337" height="47.5"/>
+                                        <rect key="frame" x="7" y="25" width="352.5" height="47.5"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1233,22 +1242,22 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIE-fy-V5h">
-                                <rect key="frame" x="24" y="124" width="366" height="30"/>
+                                <rect key="frame" x="24" y="124" width="366" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="57a-kx-hl2">
-                                <rect key="frame" x="24" y="423.5" width="366" height="41.5"/>
+                                <rect key="frame" x="24" y="421.5" width="366" height="40.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefer Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFd-Pk-stT">
-                                        <rect key="frame" x="128" y="0.0" width="110" height="20.5"/>
+                                        <rect key="frame" x="128" y="0.0" width="110" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1S-pR-apz">
-                                        <rect key="frame" x="128" y="22.5" width="110" height="1"/>
+                                        <rect key="frame" x="128" y="22" width="110" height="1"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="HHf-9G-0Ye"/>
@@ -1259,7 +1268,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hip-Hop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNj-r4-VPz">
-                                        <rect key="frame" x="158.5" y="25.5" width="49.5" height="16"/>
+                                        <rect key="frame" x="158" y="25" width="50" height="15.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1270,7 +1279,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxT-lZ-Bdc">
-                                <rect key="frame" x="162" y="545" width="90.5" height="37"/>
+                                <rect key="frame" x="160.5" y="542" width="93" height="36.5"/>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log Out">
