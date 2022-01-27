@@ -136,7 +136,7 @@ extension SearchViewController: UISearchBarDelegate {
                         guard let posting = posting as? [String: Any] else { return }
                         guard let title = posting["title"] as? String else { return }
                         guard let artist = posting["artist"] as? String else { return }
-                        guard let nickname = "Suneom" as? String else { return }
+                        guard let nickname = posting["nickname"] as? String else { return }
                         guard let genre = posting["genre"] as? String else { return }
                         guard let postBody = posting["post_body"] as? String else { return }
                         guard let postNum = posting["post_num"] as? Int else { return }
