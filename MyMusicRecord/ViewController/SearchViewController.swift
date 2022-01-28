@@ -120,7 +120,7 @@ extension SearchViewController: UISearchBarDelegate {
         
         
         
-        AF.request("\(Env.getServerURL())/search/keyword/\(keyword)", method: .get)
+        AF.request("\(Env.getServerURL())/search?tl=\(keyword)", method: .get)
             .validate(statusCode: 200..<300)
             .responseJSON() { response in
                 switch response.result
