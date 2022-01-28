@@ -61,7 +61,7 @@ class PostDetailViewController: UIViewController, NewPostingDelegate {
                     
                     guard let title = post["title"] as? String else { return }
                     guard let artist = post["artist"] as? String else { return }
-                    guard let nickname = user["nickname"] as? String else { return }
+                    guard let nickname = post["nickname"] as? String else { return }
                     guard let genre = post["genre"] as? String else { return }
                     guard let postBody = post["post_body"] as? String else { return }
                     guard let postNum = post["post_num"] as? Int else { return }
