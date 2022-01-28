@@ -74,7 +74,7 @@ class GenreViewController: UIViewController {
     
     private func requestHttp() async {
         guard let genre = genre else { return }
-        await AF.request("\(Env.getServerURL())/search/genres/\(genre.split(separator: " ")[0])").responseJSON() { response in
+        await AF.request("\(Env.getServerURL())/search?genre=\(genre.split(separator: " ")[0])").responseJSON() { response in
           switch response.result {
           case .success:
             if let data = try! response.result.get() as? [String: Any] {
