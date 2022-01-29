@@ -55,7 +55,10 @@ class LoginViewController: UIViewController {
             case .success(let value):
                 guard let data = value as? [String: Any] else { return }
                 guard let userData = data["payload"] as? [String: Any] else { return }
-                guard let id = userData["id"] as? Int else { return }
+                guard let id = userData["id"] as? Int else {
+                    guard let message = userData["message"] as? String else { return }
+                    Util.createSimpleAlert(self, title: "로그인 오류", message: message)
+                    return }
                 guard let userId = userData["user_id"] as? String else { return }
                 guard let genres = userData["genres"] as? NSArray else { return }
                 guard let nickname = userData["nickname"] as? String else { return }
