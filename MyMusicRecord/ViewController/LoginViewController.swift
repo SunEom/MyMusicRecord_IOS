@@ -92,8 +92,6 @@ class LoginViewController: UIViewController {
         sendLoginRequest()
     }
     
-    @IBAction func tapJoinButton(_ sender: Any) {
-    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
